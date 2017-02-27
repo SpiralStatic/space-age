@@ -1,0 +1,19 @@
+{
+  "name": "space-age",
+  "version": "1.0.0",
+  "description": "Web App that interacts with lauchlibrary.net's API amongst others to display upcoming rocket launches",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/SpiralStatic/space-age.git"
+  },
+  "author": "Chris Tsoi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SpiralStatic/space-age/issues"
+  },
+  "homepage": "https://github.com/SpiralStatic/space-age#readme"
+}
