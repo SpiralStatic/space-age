@@ -9,10 +9,10 @@ router.route('/')
 
 router.route('/api/users')
     .get(apiUsersController.index)
-    .create(apiUsersController.create);
+    .post(apiUsersController.create);
 
 router.route('/api/users/:id')
     .get(apiUsersController.show)
-    .get(apiUsersController.delete);
+    .delete(apiUsersController.delete);
 
 module.exports = router;
