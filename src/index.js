@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 
+var routes = require('./config/routes.js');
+
 var app = express();
 
 // Use public resource folder

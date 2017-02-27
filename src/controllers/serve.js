@@ -1,7 +1,7 @@
-function showAppPage() {
-    res.status(200).render("app/show");
+function showAppPage(req, res) {
+    res.status(200).render('app/index');
 }
 
 module.exports = {
-    show: showAppPage
+    index: showAppPage
 };
