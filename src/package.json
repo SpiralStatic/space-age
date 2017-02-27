@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/SpiralStatic/space-age/issues"
   },
-  "homepage": "https://github.com/SpiralStatic/space-age#readme"
+  "homepage": "https://github.com/SpiralStatic/space-age#readme",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "express-ejs-layouts": "^2.2.0",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.8.5"
+  }
 }
