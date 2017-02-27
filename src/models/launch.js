@@ -6,23 +6,27 @@ var launchSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    locations: { // Location of Launch
+    locations: [{ // Location of Launch
         name: {
             type: String,
             required: true
         },
         latitude: {
             type: String,
+            min: -90,
+            max: 90,
             required: true
         },
         longitude: {
             type: String,
+            min: -180,
+            max: 180,
             required: true
         },
         wikiURL: {
             type: String
         },
-        agencies: { // Agency conducting the lauch
+        agencies: [{ // Agency conducting the lauch
             name: {
                 type: String,
                 required: true
@@ -30,10 +34,10 @@ var launchSchema = mongoose.Schema({
             infoURLs: {
                 type: String
             }
-        },
+        }],
         required: true,
-    },
-    rockets: { // Rockets being used at at launch
+    }],
+    rockets: [{ // Rockets being used at at launch
         name: {
             type: String,
             required: true
@@ -45,8 +49,8 @@ var launchSchema = mongoose.Schema({
             type: String
         },
         required: true,
-    },
-    missions: { // Mission being carried out at launch
+    }],
+    missions: [{ // Mission being carried out at launch
         name: {
             type: String,
             required: true
@@ -57,7 +61,7 @@ var launchSchema = mongoose.Schema({
         typeName: {
             type: String
         }
-    },
+    }],
     status: {
         type: Number,
         required: true,

@@ -12,16 +12,33 @@ describe('API User', () => {
     beforeEach((done) => {
         User.create({
             email: "test@test.com",
-            password: "password"
+            password: "password",
+            favorites: {
+                name: "Test Launch",
+                locations: [{
+                    name: "Test Location",
+                    latitude: "3.43438",
+                    longitude: "9.23123",
+                    agencies: {
+                        name: "NASA"
+                    }
+                }],
+                rockets: [{
+                    name: "Atlas 8"
+                }],
+                status: 3,
+                windowstart: "October 8, 2012 00:35:07 UTC",
+                windowend: "October 8, 2012 01:35:07 UTC"
+            }
         }, (err) => {
-            if (err) return handleError(err);
+            if (err) return err;
             done();
         });
     });
 
     afterEach((done) => {
         User.remove({}, (err) => {
-            if (err) return handleError(err);
+            if (err) return err;
             done();
        }).sort({ _id: -1 }).limit(1);
     });
