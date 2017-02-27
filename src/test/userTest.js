@@ -11,8 +11,7 @@ chai.use(chaiHttp);
 describe('API User', () => {
     beforeEach((done) => {
         User.create({
-            email: "test@test.com",
-            password: "password",
+            uid: "ds83hd8u3idsa8yd3dasdd83di2e89dj38",
             favorites: {
                 name: "Test Launch",
                 locations: [{

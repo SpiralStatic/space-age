@@ -2,14 +2,10 @@ var mongoose = require('mongoose');
 
 // Create a new User Schema
 var userSchema = mongoose.Schema({
-    email: {
+    uid: {
         type: String,
         required: true,
         unique: true
-    },
-    password: {
-        type: String,
-        required: true
     },
     favorites: [{
         type: mongoose.Schema.Types.ObjectId,
