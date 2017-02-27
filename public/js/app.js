@@ -11,7 +11,11 @@ function MainRouter($stateProvider, $urlRouterProvider) {
         })
         .state('launches', {
             url: '/launches',
-            templateUrl: '/states/launches.html',
+            templateUrl: '/states/launches/index.html',
+        })
+        .state('showlaunch', {
+            url: '/launches/:id',
+            templateUrl: '/states/launches/show.html',
         });
 
     $urlRouterProvider.otherwise('/');

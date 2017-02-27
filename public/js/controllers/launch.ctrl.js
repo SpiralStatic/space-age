@@ -9,4 +9,8 @@ function LaunchController() {
     self.getLaunches = function() {
         console.log("Launches");
     };
+
+    self.getLaunch = function(launchID) {
+        console.log("Got Launch: " + launchID);
+    };
 }
