@@ -1,5 +1,4 @@
 var express = require('express');
-var layouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
@@ -33,9 +32,6 @@ app.use(methodOverride(function(req, res) {
 
 // Set the view engine to be ejs
 app.set('view engine', 'ejs');
-
-// Include express layouts middleware
-app.use(layouts);
 
 // Add the router
 app.use(routes);
