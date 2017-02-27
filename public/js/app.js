@@ -7,15 +7,24 @@ function MainRouter($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
             url: '/',
-            templateUrl: '/states/home.html',
+            views: {
+                '': { templateUrl: '/states/home.html' },
+                'navbar@home': { templateUrl: '/states/partials/_navbar.html' }
+            }
         })
         .state('launches', {
             url: '/launches',
-            templateUrl: '/states/launches/index.html',
+            views: {
+                '': { templateUrl: '/states/launches/index.html' },
+                'navbar@home': { templateUrl: '/states/partials/_navbar.html' }
+            }
         })
         .state('showlaunch', {
             url: '/launches/:id',
-            templateUrl: '/states/launches/show.html',
+            views: {
+                '': { templateUrl: '/states/launches/show.html' },
+                'navbar@home': { templateUrl: '/states/partials/_navbar.html' }
+            }
         });
 
     $urlRouterProvider.otherwise('/');
