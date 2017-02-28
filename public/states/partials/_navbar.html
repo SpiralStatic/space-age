@@ -1,13 +1,31 @@
-<div class="ui menu">
-    <div class="header item">
-        Space Age
+<div class="ui large stackable labeled icon menu">
+    <div class="header">
+        <a class="item" ui-sref="home">
+            <i class=" icon"></i>Space Age
+        </a>
     </div>
-    <div ng-if="!user" class="right menu">
-        <a class="item">
+
+    <div ng-if="user" class="right menu">
+        <a class="item" ui-sref="register">
             <i class=" icon"></i> Register
         </a>
-        <a class="item">
+        <a class="item" ui-sref="login">
             <i class=" icon"></i> Login
+        </a>
+    </div>
+
+    <div ng-if="!user" class="right menu">
+        <a class="item" ui-sref="launches">
+            <i class=" icon"></i> Launches
+        </a>
+        <a class="item" ui-sref="news">
+            <i class=" icon"></i> News
+        </a>
+        <a class="item">
+            <i class=" icon"></i> Profile
+        </a>
+        <a class="item">
+            <i class=" icon"></i> Logout
         </a>
     </div>
 </div>
