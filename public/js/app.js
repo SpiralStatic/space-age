@@ -56,7 +56,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
                 '': {
                     templateUrl: '/states/register.html'
                 },
-                'navbar@login': {
+                'navbar@register': {
                     templateUrl: '/states/partials/_navbar.html'
                 }
             }
