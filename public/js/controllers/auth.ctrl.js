@@ -2,14 +2,17 @@ angular
     .module('SpaceAgeApp')
     .controller('AuthController', AuthController);
 
-function AuthController(Auth, $scope, LoginService) {
+function AuthController(Auth, User, $scope, LoginService) {
     var self = this;
 
     self.createUser = function() {
         Auth.$createUserWithEmailAndPassword(self.email, self.password)
             .then(function(user) {
                 resetCredentials();
-                
+                User.create({
+                    uid: user.uid,
+                    favorites: []
+                });
             })
             .catch(function(error) {
                 self.error = error;

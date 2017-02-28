@@ -1,5 +1,6 @@
 angular
     .module('SpaceAgeApp', ['ui.router', 'firebase'])
+    .constant('API', 'http://localhost:3000')
     .config(MainRouter);
 
 function MainRouter($stateProvider, $urlRouterProvider) {
