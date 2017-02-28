@@ -1,6 +1,6 @@
 angular
     .module('SpaceAgeApp', ['ui.router', 'firebase'])
-    .constant('API', 'http://localhost:3000')
+    .constant('API', 'http://localhost:3000/api')
     .config(MainRouter);
 
 function MainRouter($stateProvider, $urlRouterProvider) {
@@ -23,7 +23,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
                 '': {
                     templateUrl: '/states/launches/index.html'
                 },
-                'navbar@home': {
+                'navbar@launches': {
                     templateUrl: '/states/partials/_navbar.html'
                 }
             }
@@ -34,7 +34,29 @@ function MainRouter($stateProvider, $urlRouterProvider) {
                 '': {
                     templateUrl: '/states/launches/show.html'
                 },
-                'navbar@home': {
+                'navbar@showlaunch': {
+                    templateUrl: '/states/partials/_navbar.html'
+                }
+            }
+        })
+        .state('login', {
+            url: '/login',
+            views: {
+                '': {
+                    templateUrl: '/states/login.html'
+                },
+                'navbar@login': {
+                    templateUrl: '/states/partials/_navbar.html'
+                }
+            }
+        })
+        .state('register', {
+            url: '/register',
+            views: {
+                '': {
+                    templateUrl: '/states/register.html'
+                },
+                'navbar@login': {
                     templateUrl: '/states/partials/_navbar.html'
                 }
             }

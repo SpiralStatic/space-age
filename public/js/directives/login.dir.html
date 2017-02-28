@@ -1,16 +1,15 @@
-<div class="ui modal active">
+<div class="ui modal">
     <div class="header">Login</div>
-    <div class="content" ng-if="!authCtrl.user">
-        <button ng-click="authCtrl.signIn()" class="ui google plus button">
+    <div class="content" ng-if="!user">
+        <button ng-click="signIn()" class="ui google plus button">
             <i class="google icon"></i> Google
         </button>
 
-
-        <button ng-click="authCtrl.signIn()" class="ui facebook button">
+        <!-- <button ng-click="signIn()" class="ui facebook button">
             <i class="facebook icon"></i> Facebook
-        </button>
+        </button> -->
 
-        <form class="ui form">
+        <div class="ui form">
             <div class="field">
                 <label for: "email">Email:</label>
                 <input type="text" name="email" ng-model="authCtrl.email" placeholder="Enter Email" required>
@@ -24,7 +23,7 @@
             <p ng-if="authCtrl.error">
                 Error: <span class="bold">{{ authCtrl.error }}</span>
             </p>
-        </form>
+        </div>
     </div>
 
     <div class="content" ng-if="authCtrl.user">
@@ -32,7 +31,7 @@
     </div>
 
     <div class="actions">
-        <div class="ui negative cancel button" ng-click="authCtrl.loginHide()">Cancel</div>
-        <div class="ui positive approve button">Login</div>
+        <button ng-click="authCtrl.loginHide()" class="ui negative cancel button">Cancel</button>
+        <button ng-click="$parent.signIn()" class="ui positive approve button">Login</button>
     </div>
 </div>

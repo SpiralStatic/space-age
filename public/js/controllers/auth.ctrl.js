@@ -2,13 +2,15 @@ angular
     .module('SpaceAgeApp')
     .controller('AuthController', AuthController);
 
-function AuthController(Auth, User, $scope, LoginService) {
+function AuthController(Auth, User, $scope) {
     var self = this;
 
     self.createUser = function() {
         Auth.$createUserWithEmailAndPassword(self.email, self.password)
             .then(function(user) {
+                console.log(user);
                 resetCredentials();
+                console.log(User);
                 User.create({
                     uid: user.uid,
                     favorites: []
@@ -20,8 +22,10 @@ function AuthController(Auth, User, $scope, LoginService) {
     };
 
     self.signIn = function() {
+        console.log("Sign in attempt");
         Auth.$signInWithEmailAndPassword(self.email, self.password)
             .then(function(user) {
+                console.log(user);
                 resetCredentials();
             })
             .catch(function(error) {
@@ -35,7 +39,6 @@ function AuthController(Auth, User, $scope, LoginService) {
     };
 
     Auth.$onAuthStateChanged(function(user) {
-        console.log(user);
         self.user = user;
     });
 
@@ -44,15 +47,14 @@ function AuthController(Auth, User, $scope, LoginService) {
         self.password = "";
     }
 
-    $scope.loginHidden = LoginService.sharedObject.loginHidden;
-
+//////////////////////////////////////////////////////////////////
+    // $scope.loginHidden = LoginService.sharedObject.loginHidden;
+    //
     self.loginShow = function() {
-        $scope.loginHidden = false;
-        console.log(LoginService.sharedObject);
-        console.log("loginHidden: " + $scope.loginHidden);
-    };
-
-    self.loginHide = function() {
-        $scope.loginHidden = true;
+        $scope.isHidden = false;
+        console.log("loginShow: " + $scope.isHidden);
+        // $scope.loginHidden = false;
+        // console.log(LoginService.sharedObject);
+        // console.log("loginHidden: " + $scope.loginHidden);
     };
 }
