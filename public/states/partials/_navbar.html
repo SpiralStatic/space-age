@@ -1,31 +1,31 @@
 <div class="ui large stackable labeled icon menu">
     <div class="header">
         <a class="item" ui-sref="home">
-            <i class=" icon"></i>Space Age
-        </a>
-    </div>
-
-    <div ng-if="user" class="right menu">
-        <a class="item" ui-sref="register">
-            <i class=" icon"></i> Register
-        </a>
-        <a class="item" ui-sref="login">
-            <i class=" icon"></i> Login
+            <i class="rocket icon"></i>Space Age
         </a>
     </div>
 
     <div ng-if="!user" class="right menu">
+        <a class="item" ui-sref="register">
+            <i class="add user icon"></i> Register
+        </a>
+        <a class="item" ng-click="loginAction()">
+            <i class="sign in icon"></i> Login
+        </a>
+    </div>
+
+    <div ng-if="user" class="right menu">
         <a class="item" ui-sref="launches">
-            <i class=" icon"></i> Launches
+            <i class="rocket icon"></i> Launches
         </a>
         <a class="item" ui-sref="news">
-            <i class=" icon"></i> News
+            <i class="world icon"></i> News
         </a>
         <a class="item">
-            <i class=" icon"></i> Profile
+            <i class="user icon"></i> Profile
         </a>
         <a class="item">
-            <i class=" icon"></i> Logout
+            <i class="sign out icon"></i> Logout
         </a>
     </div>
 </div>

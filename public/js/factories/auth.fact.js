@@ -4,7 +4,7 @@ angular
     .run(function() {
         // Initialize Firebase
         var config = {
-            apiKey: "AIzaSyA7Sulh1Qhpj6OFY01XbKGTOAOY9h6S6KA",
+            apiKey: process.env.FIREBASEAPI,
             authDomain: "spaceageapp.firebaseapp.com",
             databaseURL: "https://spaceageapp.firebaseio.com",
             storageBucket: "spaceageapp.appspot.com",
