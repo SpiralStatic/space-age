@@ -2,22 +2,22 @@ angular
     .module('SpaceAgeApp')
     .controller('AuthController', AuthController);
 
-function AuthController(Auth, User, $scope) {
+function AuthController(Auth, User, $scope, $state) {
     var self = this;
 
     self.createUser = function() {
         Auth.$createUserWithEmailAndPassword(self.email, self.password)
             .then(function(user) {
-                console.log(user);
                 resetCredentials();
+
                 User.create({
                     'uid': user.uid,
                     'favorites': []
                 }).then(function(dbUser) {
 
-                }).catch(function (dbError) {
+                }).catch(function(dbError) {
                     self.error = dbError;
-                })
+                });
             })
             .catch(function(error) {
                 self.error = error;
@@ -28,8 +28,36 @@ function AuthController(Auth, User, $scope) {
         console.log("Sign in attempt");
         Auth.$signInWithEmailAndPassword(self.email, self.password)
             .then(function(user) {
-                console.log(user);
                 resetCredentials();
+            })
+            .catch(function(error) {
+                self.error = error;
+            });
+    };
+
+    self.googleSignIn = function() {
+        var provider = new firebase.auth.GoogleAuthProvider();
+
+        firebase.auth()
+            .signInWithPopup(provider)
+            .then(function(result) {
+                var user = result.user;
+                User.get(user.uid)
+                    .then(function(result) {
+
+                    })
+                    .catch(function(error) {
+                        if (error.status === 404) {
+                            User.create({
+                                'uid': user.uid,
+                                'favorites': []
+                            }).then(function(dbUser) {
+
+                            }).catch(function(dbError) {
+                                self.error = dbError;
+                            });
+                        }
+                    });
             })
             .catch(function(error) {
                 self.error = error;
@@ -38,6 +66,7 @@ function AuthController(Auth, User, $scope) {
 
     self.signOut = function() {
         Auth.$signOut();
+
         $state.go('home');
     };
 
@@ -50,7 +79,7 @@ function AuthController(Auth, User, $scope) {
         self.password = "";
     }
 
-//////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////
     // $scope.loginHidden = LoginService.sharedObject.loginHidden;
     //
     self.loginShow = function() {

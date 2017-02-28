@@ -1,14 +1,14 @@
 var User = require('../../models/user.js');
 
 function indexUserFavorites(req, res) {
-    User.findById(req.user.uid, function(err, user) {
+    User.find({ uid: req.params.id }, function(err, user) {
         elseError(req, res, err, user);
         res.status(200).json(user.favorites);
     });
 }
 
 function showUser(req, res) {
-    User.findById(req.user.uid, function(err, user) {
+    User.find({ uid: req.params.id }, function(err, user) {
         ifNotFound(req, res, err, user);
         elseError(req, res, err, user);
 
@@ -17,18 +17,15 @@ function showUser(req, res) {
 }
 
 function createUser(req, res) {
-    console.log('body: ', req.body);
     User.create(req.body, function(err, user) {
         elseError(req, res, err, user);
-        console.log(user);
-        console.log(err);
 
         res.status(200).json(user);
     });
 }
 
 function deleteUser(req, res) {
-    User.delete(req.user.uid, function(err, user) {
+    User.delete({ uid: req.params.id }, function(err, user) {
         ifNotFound(req, res, err, user);
         elseError(req, res, err, user);
 

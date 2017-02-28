@@ -1,8 +1,8 @@
-<div class="ui">
+<section>
     <div id='navbar' ui-view='navbar'></div>
     <div class="header">Login</div>
     <div class="content" ng-if="!authCtrl.user">
-        <button ng-click="signIn()" class="ui google plus button">
+        <button ng-click="authCtrl.googleSignIn()" class="ui google plus button">
             <i class="google icon"></i> Google
         </button>
 
@@ -35,4 +35,4 @@
         <button ng-click="authCtrl.loginHide()" class="ui negative cancel button">Cancel</button>
         <button ng-click="authCtrl.signIn()" class="ui positive approve button">Login</button>
     </div>
-</div>
+</section>
