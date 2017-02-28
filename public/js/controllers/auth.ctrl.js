@@ -10,11 +10,14 @@ function AuthController(Auth, User, $scope) {
             .then(function(user) {
                 console.log(user);
                 resetCredentials();
-                console.log(User);
                 User.create({
-                    uid: user.uid,
-                    favorites: []
-                });
+                    'uid': user.uid,
+                    'favorites': []
+                }).then(function(dbUser) {
+
+                }).catch(function (dbError) {
+                    self.error = dbError;
+                })
             })
             .catch(function(error) {
                 self.error = error;

@@ -17,13 +17,13 @@ function showUser(req, res) {
 }
 
 function createUser(req, res) {
-    console.log(req);
+    console.log('body: ', req.body);
     User.create(req.body, function(err, user) {
         elseError(req, res, err, user);
         console.log(user);
         console.log(err);
 
-        res.status(204).json(user);
+        res.status(200).json(user);
     });
 }
 
@@ -32,7 +32,7 @@ function deleteUser(req, res) {
         ifNotFound(req, res, err, user);
         elseError(req, res, err, user);
 
-        res.status(204).json({
+        res.status(200).json({
             message: "Successful deletion"
         });
     });

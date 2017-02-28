@@ -1,13 +1,13 @@
 <div class="ui">
     <div class="header">Login</div>
-    <div class="content" ng-if="!user">
+    <div class="content" ng-if="!authCtrl.user">
         <button ng-click="signIn()" class="ui google plus button">
             <i class="google icon"></i> Google
         </button>
 
-        <button ng-click="signIn()" class="ui facebook button">
+        <!-- <button ng-click="signIn()" class="ui facebook button">
             <i class="facebook icon"></i> Facebook
-        </button>
+        </button> -->
 
         <div class="ui form">
             <div class="field">
