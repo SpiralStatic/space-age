@@ -2,13 +2,12 @@
     <div class="header item">
         Space Age
     </div>
-    <a class="item">
-        About Us
-    </a>
-    <a class="item">
-        Jobs
-    </a>
-    <a class="item">
-        Locations
-    </a>
+    <div ng-if="!user" class="right menu">
+        <a class="item">
+            <i class=" icon"></i> Register
+        </a>
+        <a class="item">
+            <i class=" icon"></i> Login
+        </a>
+    </div>
 </div>
