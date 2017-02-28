@@ -1,5 +1,5 @@
 angular
-    .module('SpaceAgeApp', ['ui.router'])
+    .module('SpaceAgeApp', ['ui.router', 'firebase'])
     .config(MainRouter);
 
 function MainRouter($stateProvider, $urlRouterProvider) {
