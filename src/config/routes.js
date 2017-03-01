@@ -3,6 +3,7 @@ var router = express.Router();
 
 var serveController = require('../controllers/serve.js');
 var apiUsersController = require('../controllers/api/users.js');
+var apiLaunchesController = require('../controllers/api/launches.js');
 
 router.route('/')
     .get(serveController.index);
@@ -14,5 +15,8 @@ router.route('/api/users')
 router.route('/api/users/:id')
     .get(apiUsersController.show)
     .delete(apiUsersController.delete);
+
+router.route('/api/launches')
+    .get(apiLaunchesController.index);
 
 module.exports = router;

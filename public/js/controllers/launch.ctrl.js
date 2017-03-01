@@ -2,13 +2,14 @@ angular
     .module('SpaceAgeApp')
     .controller('LaunchController', LaunchController);
 
-function LaunchController() {
+function LaunchController(Launch) {
     let self = this;
     let launches = [];
     let launch = {};
 
     self.getLaunches = function() {
-        console.log("Launches");
+        launches = Launch.getAll();
+        console.log(launches);
     };
 
     self.getLaunch = function(launchID) {
