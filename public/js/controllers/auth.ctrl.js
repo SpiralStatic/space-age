@@ -5,7 +5,7 @@ angular
 function AuthController(Auth, User, $scope, $state) {
     var self = this;
     self.isHidden = false;
-    
+
     self.createUser = function() {
         Auth.$createUserWithEmailAndPassword(self.email, self.password)
             .then(function(user) {

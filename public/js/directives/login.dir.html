@@ -21,7 +21,7 @@
             </div>
 
             <p ng-if="loginCtrl.error">
-                Error: <span class="bold">{{ loginCtrl.error }}</span>
+                Error: <span ng-model="loginCtrl.error"></span>
             </p>
         </div>
     </div>

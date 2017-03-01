@@ -1,9 +1,16 @@
 angular
     .module('SpaceAgeApp', ['ui.router', 'firebase'])
     .constant('API', 'http://localhost:3000/api')
-    .config(MainRouter);
+    .config(MainRouter)
+    .run(AuthCatcher);
 
 function MainRouter($stateProvider, $urlRouterProvider) {
+
+    var authRequired = {
+        currentAuth: function(Auth) {
+            return Auth.$requireSignIn();
+        }
+    };
 
     $stateProvider
         .state('home', {
@@ -26,7 +33,8 @@ function MainRouter($stateProvider, $urlRouterProvider) {
                 'navbar@launches': {
                     templateUrl: '/states/partials/_navbar.html'
                 }
-            }
+            },
+            resolve: authRequired
         })
         .state('showlaunch', {
             url: '/launches/:id',
@@ -37,7 +45,8 @@ function MainRouter($stateProvider, $urlRouterProvider) {
                 'navbar@showlaunch': {
                     templateUrl: '/states/partials/_navbar.html'
                 }
-            }
+            },
+            resolve: authRequired
         })
         .state('login', {
             url: '/login',
@@ -63,4 +72,10 @@ function MainRouter($stateProvider, $urlRouterProvider) {
         });
 
     $urlRouterProvider.otherwise('/');
+}
+
+function AuthCatcher($rootScope, $state) {
+    $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
+        if (error === "AUTH_REQUIRED") $state.go('register');
+    });
 }

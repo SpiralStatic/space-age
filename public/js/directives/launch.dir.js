@@ -18,7 +18,8 @@ function LaunchDirective() {
             windowstart: '=',
             windowend: '=',
             infoURLs: '=',
-            vidURLs: '='
+            vidURLs: '=',
+            weather: '='
         }
     };
 }

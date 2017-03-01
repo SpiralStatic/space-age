@@ -12,9 +12,7 @@ function indexLaunches(req, res) {
         });
 
         var weatherAPI = process.env.WEATHERAPI;
-        console.log(weatherAPI);
         var pad = JSON.parse(launches).launches[0].location.pads[0];
-        console.log("PAD: " + pad);
 
         request('http://api.openweathermap.org/data/2.5/weather?lat=' + pad.latitude + '&lon=' + pad.longitude + '&APPID=' + weatherAPI, function(error, response, weather) {
             console.log(weather);
