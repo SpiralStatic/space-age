@@ -4,12 +4,19 @@ angular
 
 function LaunchController(Launch) {
     let self = this;
-    let launches = [];
-    let launch = {};
+    self.launches = [];
+    self.launch = {};
 
     self.getLaunches = function() {
-        self.launches = Launch.getAll();
-        console.log(self.launches);
+        Launch.getAll()
+            .then(function(response) {
+                self.launches = response.data.launches;
+                console.log(response.data);
+                console.log(self.launches);
+            })
+            .catch(function(error) {
+                self.error = error;
+            });
     };
 
     self.getLaunch = function(launchID) {

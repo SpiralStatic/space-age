@@ -11,7 +11,7 @@ function indexLaunches(req, res) {
         if (error) return res.status(500).json({
             error: error.message
         });
-        res.status(200).json(launches.launches);
+        res.status(200).json(launches);
     });
 }
 
