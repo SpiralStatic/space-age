@@ -3,17 +3,17 @@
         <div class="content">
             <a class="header">{{ name }}</a>{{ status | convertStatusCode}}
             <div class="meta">
-                <span>{{ location }}</span>
+                <span>{{ location.pads.name }}</span>
             </div>
             <div class="description">
-                <p></p>
+                <p >{{ missions[0].description }}</p>
             </div>
             <div class="extra">
                 {{ windowstart | stripTimeWindow }} to {{ windowend | stripTimeWindow }}
             </div>
         </div>
-        <div class="image">
-            <img src="#">
+        <div >
+            <p>{{ launchCtrl.weather.weather.indexOf('icon') }}</p>
         </div>
     </div>
 </div>

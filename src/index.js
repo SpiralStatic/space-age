@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var morgan = require('morgan');
 
 var routes = require('./config/routes.js');
 
@@ -25,6 +26,8 @@ app.set('view engine', 'ejs');
 
 // Add the router
 app.use(routes);
+
+app.use(morgan('dev'))
 
 // Start server
 app.listen(3000, function() {
