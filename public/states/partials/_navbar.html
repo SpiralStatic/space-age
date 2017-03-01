@@ -1,5 +1,6 @@
 <section>
-    <div class="mobile hidden ui large stackable labeled icon menu">
+    <!-- DESKTOP/TABLET NAV -->
+    <div class="mobile hidden ui large labeled icon menu">
         <div class="header">
             <a class="item" ui-sref="home">
                 <i class="rocket icon"></i>Space Age
@@ -31,7 +32,8 @@
         </div>
     </div>
 
-    <div ng-if="authCtrl.user" class="mobile only fluid ui medium labeled icon vertical menu">
+    <!-- MOBILE NAV -->
+    <div class="mobile only fluid ui medium labeled icon vertical menu">
         <div class="header">
             <a class="item" ui-sref="home">
                 <i class="rocket icon"></i>Space Age
@@ -39,6 +41,15 @@
         </div>
 
         <div class="ui horizontal divider">H</div>
+
+        <div ng-if="!authCtrl.user">
+            <a class="item" ui-sref="register ">
+                <i class="add user icon"></i> Register
+            </a>
+            <a class="item" ng-click="authCtrl.toggleLogin()">
+                <i class="sign in icon"></i> Login
+            </a>
+        </div>
 
         <div ng-if="authCtrl.user">
             <a class="item" ui-sref="launches">

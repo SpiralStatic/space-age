@@ -1,7 +1,7 @@
-<div class="ui modal active">
+<div ng-controller="AuthController as loginCtrl" class="ui modal active">
     <div class="header">Login</div>
-    <div class="content" ng-if="!authCtrl.user">
-        <button ng-click="authCtrl.googleSignIn()" class="ui google plus button">
+    <div class="content" ng-if="!loginCtrl.user">
+        <button ng-click="loginCtrl.googleSignIn()" class="ui google plus button">
             <i class="google icon"></i> Google
         </button>
 
@@ -12,26 +12,26 @@
         <div class="ui form">
             <div class="field">
                 <label for: "email">Email:</label>
-                <input type="text" name="email" ng-model="authCtrl.email" placeholder="Enter Email" required>
+                <input type="text" name="email" ng-model="loginCtrl.email" placeholder="Enter Email" required>
             </div>
 
             <div class="field">
                 <label for: "password">Password:</label>
-                <input type="text" name="password" ng-model="authCtrl.password" placeholder="Enter Password" required>
+                <input type="text" name="password" ng-model="loginCtrl.password" placeholder="Enter Password" required>
             </div>
 
-            <p ng-if="authCtrl.error">
-                Error: <span class="bold">{{ authCtrl.error }}</span>
+            <p ng-if="loginCtrl.error">
+                Error: <span class="bold">{{ loginCtrl.error }}</span>
             </p>
         </div>
     </div>
 
-    <div class="content" ng-if="authCtrl.user">
+    <div class="content" ng-if="loginCtrl.user">
         <p>You are already logged in</hp>
     </div>
 
     <div class="actions">
-        <button ng-click="authCtrl.loginHide()" class="ui negative cancel button">Cancel</button>
-        <button ng-click="authCtrl.signIn()" class="ui positive approve button">Login</button>
+        <button ng-click="authCtrl.toggleLogin()" class="ui negative cancel button">Cancel</button>
+        <button ng-click="loginCtrl.signIn()" class="ui positive approve button">Login</button>
     </div>
 </div>

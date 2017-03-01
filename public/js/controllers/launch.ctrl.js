@@ -10,8 +10,7 @@ function LaunchController(Launch) {
     self.getLaunches = function() {
         Launch.getAll()
             .then(function(response) {
-                self.launches = response.data.launches;
-                console.log(response.data);
+                self.launches = JSON.parse(response.data).launches;
                 console.log(self.launches);
             })
             .catch(function(error) {
