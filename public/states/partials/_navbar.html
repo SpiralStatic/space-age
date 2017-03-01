@@ -10,7 +10,7 @@
             <a class="item" ui-sref="register">
                 <i class="add user icon"></i> Register
             </a>
-            <a class="item" ng-click="loginHide()">
+            <a class="item" ng-click="authCtrl.toggleLogin()">
                 <i class="sign in icon"></i> Login
             </a>
         </div>
@@ -32,4 +32,4 @@
     </div>
 </section>
 
-<login></login>
+<login show="authCtrl.isHidden" ng-if="authCtrl.isHidden"></login>

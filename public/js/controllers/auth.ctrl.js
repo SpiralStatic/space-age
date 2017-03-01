@@ -4,7 +4,7 @@ angular
 
 function AuthController(Auth, User, $scope, $state) {
     var self = this;
-
+    self.isHidden = false;
     self.createUser = function() {
         Auth.$createUserWithEmailAndPassword(self.email, self.password)
             .then(function(user) {
@@ -43,19 +43,19 @@ function AuthController(Auth, User, $scope, $state) {
             .then(function(result) {
                 var user = result.user;
                 User.get(user.uid)
-                    .then(function(result) {
+                    .then(function(dbUser) {
 
                     })
-                    .catch(function(error) {
-                        if (error.status === 404) {
+                    .catch(function(dbError) {
+                        if (dbError.status === 404) {
                             User.create({
                                 'uid': user.uid,
                                 'favorites': []
-                            }).then(function(dbUser) {
-
-                            }).catch(function(dbError) {
-                                self.error = dbError;
+                            }).then(function(user) {
+                                console.log(user);
                             });
+                        } else {
+                            self.error = dbError;
                         }
                     });
             })
@@ -82,9 +82,9 @@ function AuthController(Auth, User, $scope, $state) {
     //////////////////////////////////////////////////////////////////
     // $scope.loginHidden = LoginService.sharedObject.loginHidden;
     //
-    self.loginShow = function() {
-        $scope.isHidden = false;
-        console.log("loginShow: " + $scope.isHidden);
+    self.toggleLogin = function() {
+        self.isHidden = !self.isHidden
+        console.log("loginShow: " + self.isHidden);
         // $scope.loginHidden = false;
         // console.log(LoginService.sharedObject);
         // console.log("loginHidden: " + $scope.loginHidden);

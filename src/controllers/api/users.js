@@ -1,16 +1,20 @@
 var User = require('../../models/user.js');
 
 function indexUserFavorites(req, res) {
-    User.find({ uid: req.params.id }, function(err, user) {
+    User.findOne({ uid: req.params.id }, function(err, user) {
         elseError(req, res, err, user);
         res.status(200).json(user.favorites);
     });
 }
 
 function showUser(req, res) {
-    User.find({ uid: req.params.id }, function(err, user) {
-        ifNotFound(req, res, err, user);
-        elseError(req, res, err, user);
+    User.findOne({ uid: req.params.id }, function(err, user) {
+        if (!user) return res.status(404).json({
+            message: "User not found"
+        });
+        if (err) return res.status(500).json({
+            error: err.message
+        });
 
         res.status(200).json(user);
     });
@@ -37,7 +41,6 @@ function deleteUser(req, res) {
 
 function ifNotFound(req, res, err, user) {
     if (!user) return res.status(404).json({
-        error: err.message,
         message: "User not found"
     });
 }
