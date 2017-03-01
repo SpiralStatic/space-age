@@ -1,7 +1,7 @@
 <div class="ui modal active">
     <div class="header">Login</div>
-    <div class="content" ng-if="!user">
-        <button ng-click="signIn()" class="ui google plus button">
+    <div class="content" ng-if="!authCtrl.user">
+        <button ng-click="authCtrl.googleSignIn()" class="ui google plus button">
             <i class="google icon"></i> Google
         </button>
 
@@ -32,6 +32,6 @@
 
     <div class="actions">
         <button ng-click="authCtrl.loginHide()" class="ui negative cancel button">Cancel</button>
-        <button ng-click="$parent.signIn()" class="ui positive approve button">Login</button>
+        <button ng-click="authCtrl.signIn()" class="ui positive approve button">Login</button>
     </div>
 </div>

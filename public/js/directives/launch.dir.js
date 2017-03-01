@@ -9,26 +9,9 @@ function LaunchDirective() {
         templateUrl: 'js/directives/launch.dir.html',
         scope: {
             name: '=',
-            locations: [{
-                name: '=',
-                latitude: '=',
-                longitude: '=',
-                wikiURL: '=',
-                agencies: {
-                    name: '=',
-                    infoURLs: '='
-                }
-            }],
-            rockets: [{
-                name: '=',
-                wikiURL: '=',
-                imageURL: '='
-            }],
-            missions: [{
-                name: '=',
-                description: '=',
-                typeName: '='
-            }],
+            locations: '=',
+            rockets: '=',
+            missions: '=',
             status: '=',
             holdreason: '=',
             failreason: '=',

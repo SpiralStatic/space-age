@@ -1,5 +1,12 @@
 <section ng-controller="LaunchController as launchCtrl">
     <div id='navbar' ui-view='navbar'></div>
-    <h1>Launches</h1>
-    <p ng-init="launchCtrl.getLaunches()"></p>
+    <div class="ui centered grid">
+        <div class="fourteen wide column">
+
+            <h1>Launches</h1>
+            <p ng-init="launchCtrl.getLaunches()"></p>
+
+            <launch ng-repeat="launch in launchCtrl.launches"></launch>
+        </div>
+    </div>
 </section>
