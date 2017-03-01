@@ -1,5 +1,5 @@
 <section>
-    <div class="ui large stackable labeled icon menu">
+    <div class="mobile hidden ui large stackable labeled icon menu">
         <div class="header">
             <a class="item" ui-sref="home">
                 <i class="rocket icon"></i>Space Age
@@ -7,7 +7,7 @@
         </div>
 
         <div ng-if="!authCtrl.user" class="right menu">
-            <a class="item" ui-sref="register">
+            <a class="item" ui-sref="register ">
                 <i class="add user icon"></i> Register
             </a>
             <a class="item" ng-click="authCtrl.toggleLogin()">
@@ -30,6 +30,32 @@
             </a>
         </div>
     </div>
+
+    <div ng-if="authCtrl.user" class="mobile only fluid ui medium labeled icon vertical menu">
+        <div class="header">
+            <a class="item" ui-sref="home">
+                <i class="rocket icon"></i>Space Age
+            </a>
+        </div>
+
+        <div class="ui horizontal divider">H</div>
+
+        <div ng-if="authCtrl.user">
+            <a class="item" ui-sref="launches">
+                <i class="rocket icon"></i> Launches
+            </a>
+            <a class="item" ui-sref="news">
+                <i class="world icon"></i> News
+            </a>
+            <a class="item">
+                <i class="user icon"></i> Profile
+            </a>
+            <a class="item" ng-click="authCtrl.signOut()">
+                <i class="sign out icon"></i> Logout
+            </a>
+        </div>
+    </div>
+
 </section>
 
 <login show="authCtrl.isHidden" ng-if="authCtrl.isHidden"></login>
