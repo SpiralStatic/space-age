@@ -4,8 +4,12 @@
         <div class="fourteen wide column" ng-init="launchCtrl.getLaunches()">
             <h1>Launches</h1>
 
-            <launch name="'Atlas V'"></launch>
-            <launch ng-repeat="launch in launchCtrl.launches"></launch>
+            <launch
+                ng-repeat="launch in launchCtrl.launches"
+                name="launch.name"
+                status="launch.status"
+                locations="launch.location.name"
+            ></launch>
         </div>
     </div>
 </section>
