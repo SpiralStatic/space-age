@@ -4,6 +4,7 @@ angular
 
 function LaunchController() {
     let self = this;
+    let launches = [];
     let launch = {};
 
     self.getLaunches = function() {
