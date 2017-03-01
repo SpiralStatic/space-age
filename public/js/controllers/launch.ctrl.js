@@ -8,8 +8,8 @@ function LaunchController(Launch) {
     let launch = {};
 
     self.getLaunches = function() {
-        launches = Launch.getAll();
-        console.log(launches);
+        self.launches = Launch.getAll();
+        console.log(self.launches);
     };
 
     self.getLaunch = function(launchID) {
