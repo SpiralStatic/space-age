@@ -79,14 +79,7 @@ function AuthController(Auth, User, $scope, $state) {
         self.password = "";
     }
 
-    //////////////////////////////////////////////////////////////////
-    // $scope.loginHidden = LoginService.sharedObject.loginHidden;
-    //
     self.toggleLogin = function() {
-        self.isHidden = !self.isHidden
-        console.log("loginShow: " + self.isHidden);
-        // $scope.loginHidden = false;
-        // console.log(LoginService.sharedObject);
-        // console.log("loginHidden: " + $scope.loginHidden);
+        self.isHidden = !self.isHidden;
     };
 }
