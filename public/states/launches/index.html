@@ -3,17 +3,11 @@
     <div class="ui centered grid">
         <div class="fourteen wide column" ng-init="launchCtrl.getLaunches()">
             <h1>Launches</h1>
-
-            <launch
-                ng-repeat="launch in launchCtrl.launches"
-                name="launch.name"
-                status="launch.status"
-                windowstart="launch.windowstart"
-                windowend="launch.windowend"
-                locations="launch.location"
-                missions="launch.missions"
-                weather="launch.weather">
-            </launch>
+            <div class="ui one cards">
+                <launch ng-repeat="launch in launchCtrl.launches" name="launch.name" status="launch.status" windowstart="launch.windowstart" windowend="launch.windowend" locations="launch.location" rockets="launch.rockets" missions="launch.missions" infoURLs="launch.infoURLs"
+                    weather="launch.weather">
+                    </launch>
+            </div>
         </div>
     </div>
 </section>

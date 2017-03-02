@@ -9,6 +9,8 @@
             <i class="facebook icon"></i> Facebook
         </button> -->
 
+        <div class="ui divider"></div>
+
         <div class="ui form">
             <div class="field">
                 <label for: "email">Email:</label>
@@ -32,6 +34,6 @@
 
     <div class="actions">
         <button ng-click="authCtrl.toggleLogin()" class="ui negative cancel button">Cancel</button>
-        <button ng-click="loginCtrl.signIn()" class="ui positive approve button">Login</button>
+        <button ng-if="!loginCtrl.user" ng-click="loginCtrl.signIn(); loginCtrl.toggleLoggin()" class="ui positive approve button">Login</button>
     </div>
 </div>
