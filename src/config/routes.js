@@ -19,4 +19,7 @@ router.route('/api/users/:id')
 router.route('/api/launches')
     .get(apiLaunchesController.index);
 
+router.route('/api/launches/:id')
+    .get(apiLaunchesController.show);
+
 module.exports = router;

@@ -1,5 +1,13 @@
 <section ng-controller="LaunchController as launchCtrl">
     <div id='navbar' ui-view='navbar'></div>
-    <h1>Launch</h1>
-    <p ng-init="launchCtrl.getLaunch(1)"></p>
+    <div class="ui centered grid">
+        <div class="twelve wide column">
+            <h1>Launch</h1>
+            <div ng-init="launchCtrl.getLaunch()">
+                <div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

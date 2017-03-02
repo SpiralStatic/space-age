@@ -2,8 +2,8 @@ angular
     .module('SpaceAgeApp')
     .controller('LaunchController', LaunchController);
 
-function LaunchController(Launch, Weather) {
-    let self = this;
+function LaunchController(Launch, Weather, $stateParams) {
+    var self = this;
     self.launches = [];
     self.launch = {};
 
@@ -18,7 +18,17 @@ function LaunchController(Launch, Weather) {
             });
     };
 
-    self.getLaunch = function(launchId) {
-        console.log("Got Launch: " + launchId);
+    self.getLaunch = function() {
+        var id = $stateParams.id;
+        console.log(id);
+
+        Launch.get(id)
+            .then(function(response) {
+                console.log(response);
+                self.launch = response.data.launches;
+            })
+            .catch(function(error) {
+
+            });
     };
 }
