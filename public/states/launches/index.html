@@ -4,9 +4,18 @@
         <div class="fourteen wide column" ng-init="launchCtrl.getLaunches()">
             <h1>Launches</h1>
             <div class="ui one cards">
-                <launch ng-repeat="launch in launchCtrl.launches" name="launch.name" status="launch.status" windowstart="launch.windowstart" windowend="launch.windowend" locations="launch.location" rockets="launch.rockets" missions="launch.missions" infoURLs="launch.infoURLs"
+                <launch
+                    ng-repeat="launch in launchCtrl.launches"
+                    name="launch.name"
+                    status="launch.status"
+                    windowstart="launch.windowstart"
+                    windowend="launch.windowend"
+                    locations="launch.location"
+                    rockets="launch.rockets"
+                    missions="launch.missions"
+                    infoURLs="launch.infoURLs"
                     weather="launch.weather">
-                    </launch>
+                </launch>
             </div>
         </div>
     </div>

@@ -11,7 +11,7 @@ function LaunchController(Launch, Weather) {
     self.getLaunches = function() {
         Launch.getAll()
             .then(function(response) {
-                self.launches = JSON.parse(response.data).launches;
+                self.launches = response.data.launches;
                 console.log(self.launches);
             })
             .catch(function(error) {
@@ -26,7 +26,7 @@ function LaunchController(Launch, Weather) {
     self.getWeather = function(lat, lon) {
         Weather.get(lat, lon)
             .then(function(response) {
-                self.weather = JSON.parse(response.data);
+                self.weather = response.data;
                 console.log(self.weather);
             })
             .catch(function(error) {
