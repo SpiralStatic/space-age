@@ -79,6 +79,17 @@ function MainRouter($stateProvider, $urlRouterProvider, $locationProvider) {
                     templateUrl: '/states/partials/_navbar.html'
                 }
             }
+        })
+        .state('profile', {
+            url: '/profile',
+            views: {
+                '': {
+                    templateUrl: '/states/profile/show.html'
+                },
+                'navbar@profile': {
+                    templateUrl: '/states/partials/_navbar.html'
+                }
+            }
         });
 
     $urlRouterProvider.otherwise('/');
