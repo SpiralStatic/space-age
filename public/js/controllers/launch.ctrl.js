@@ -18,7 +18,7 @@ function LaunchController(Launch, Weather) {
             });
     };
 
-    self.getLaunch = function(launchID) {
-        console.log("Got Launch: " + launchID);
+    self.getLaunch = function(launchId) {
+        console.log("Got Launch: " + launchId);
     };
 }

@@ -23,6 +23,9 @@ app.filter('convertIcon', function() {
             apiIcon: ['01d'],
             icon: 'wi-day-sunny'
         }, {
+            apiIcon: ['01d'],
+            icon: 'wi-day-sunny'
+        }, {
             apiIcon: ['02d'],
             icon: 'wi-day-cloudy'
         }, {
@@ -66,17 +69,18 @@ app.filter('convertIcon', function() {
             icon: 'wi-night-alt-snow'
         }, {
             apiIcon: ['50n'],
-            icon: 'wi-day-sunny'
+            icon: 'wi-night-fog'
         }, {
             apiIcon: ['na'],
             icon: 'wi-na'
         }];
+
         var output = iconReference.filter(function(icon, i) {
             if(icon.apiIcon.indexOf(input) !== -1) return i;
         });
 
         if(output.length === 0) return iconReference[(iconReference.length - 1)].icon;
-        
+
         return output[0].icon;
     };
 });
