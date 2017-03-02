@@ -4,8 +4,7 @@ angular
     .config(MainRouter)
     .run(AuthCatcher);
 
-function MainRouter($stateProvider, $urlRouterProvider) {
-
+function MainRouter($stateProvider, $urlRouterProvider, $locationProvider) {
     var authRequired = {
         currentAuth: function(Auth) {
             return Auth.$requireSignIn();
@@ -69,9 +68,22 @@ function MainRouter($stateProvider, $urlRouterProvider) {
                     templateUrl: '/states/partials/_navbar.html'
                 }
             }
+        })
+        .state('news', {
+            url: '/news',
+            views: {
+                '': {
+                    templateUrl: '/states/news/index.html'
+                },
+                'navbar@news': {
+                    templateUrl: '/states/partials/_navbar.html'
+                }
+            }
         });
 
     $urlRouterProvider.otherwise('/');
+
+    $locationProvider.html5Mode(true);
 }
 
 function AuthCatcher($rootScope, $state) {
