@@ -4,7 +4,6 @@ var router = express.Router();
 var serveController = require('../controllers/serve.js');
 var apiUsersController = require('../controllers/api/users.js');
 var apiLaunchesController = require('../controllers/api/launches.js');
-var apiWeatherController = require('../controllers/api/weather.js');
 
 router.route('/')
     .get(serveController.index);
@@ -19,8 +18,5 @@ router.route('/api/users/:id')
 
 router.route('/api/launches')
     .get(apiLaunchesController.index);
-
-router.route('/api/weather')
-    .get(apiWeatherController.show);
 
 module.exports = router;

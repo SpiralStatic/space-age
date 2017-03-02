@@ -67,12 +67,16 @@ app.filter('convertIcon', function() {
         }, {
             apiIcon: ['50n'],
             icon: 'wi-day-sunny'
+        }, {
+            apiIcon: ['na'],
+            icon: 'wi-na'
         }];
         var output = iconReference.filter(function(icon, i) {
-            ///console.log(icon.apiIcon.indexOf(input));
             if(icon.apiIcon.indexOf(input) !== -1) return i;
         });
-        console.log(output);
+
+        if(output.length === 0) return iconReference[(iconReference.length - 1)].icon;
+        
         return output[0].icon;
     };
 });

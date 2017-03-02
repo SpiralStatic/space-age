@@ -36,8 +36,6 @@ function indexLaunches(req, res) {
                 rpromise(weatherOptions)
                     .then((function(j) {
                         return function(weatherResponse) {
-                            console.log(j);
-                            console.log("BEFORE ADD: " + JSON.stringify(response.launches[j].weather));
                             response.launches[j].weather = weatherResponse;
                             console.log("Weather: " + JSON.stringify(response.launches[j].weather));
 
