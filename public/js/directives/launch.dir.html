@@ -12,6 +12,6 @@
         </div>
     </div>
     <div class="floated right">
-        <i class="{{ weather.weather[0].icon}} || convertIcon" alt="{{ weather.weather[0].description }}"></i>
+        <i class="wi {{ weather.weather[0].icon | convertIcon }}" alt="{{ weather.weather[0].description }}"></i>
     </div>
 </div>
