@@ -12,37 +12,49 @@ function indexLaunches(req, res) {
 
     rpromise(launchOptions)
         .then(function(response) {
-
             var weatherAPI = process.env.WEATHERAPI;
-            var pad = response.launches[0].location.pads[0];
 
-            var weatherOptions = {
-                uri: 'http://api.openweathermap.org/data/2.5/weather',
-                qs: {
-                    lat: pad.latitude,
-                    lon: pad.longitude,
-                    APPID: weatherAPI
-                },
-                headers: {
-                    'User-Agent': 'Request-Promise'
-                },
-                json: true // Automatically parses the JSON string in the response
-            };
+            var completedResponses = 0;
 
-            rpromise(weatherOptions)
-                .then(function(weatherResponse) {
-                    console.log(weatherResponse);
-                    response.launches.push(weatherResponse);
-                    console.log("Weather: " + JSON.stringify(response.launches.weather));
+            for (var i = 0; i < response.launches.length; i++) {
 
-                    res.status(200).json(response);
-                })
-                .catch(function(error) {
-                    console.log(error);
-                    return res.status(500).json({
-                        error: error.message
+                var pad = response.launches[i].location.pads[0];
+
+                var weatherOptions = {
+                    uri: 'http://api.openweathermap.org/data/2.5/weather',
+                    qs: {
+                        lat: pad.latitude,
+                        lon: pad.longitude,
+                        APPID: weatherAPI
+                    },
+                    headers: {
+                        'User-Agent': 'Request-Promise'
+                    },
+                    json: true // Automatically parses the JSON string in the response
+                };
+
+                rpromise(weatherOptions)
+                    .then((function(j) {
+                        return function(weatherResponse) {
+                            console.log(j);
+                            console.log("BEFORE ADD: " + JSON.stringify(response.launches[j].weather));
+                            response.launches[j].weather = weatherResponse;
+                            console.log("Weather: " + JSON.stringify(response.launches[j].weather));
+
+                            if(completedResponses === (response.launches.length - 1)) {
+                                res.status(200).json(response);
+                            } else {
+                                completedResponses++;
+                            }
+                        };
+                    })(i))
+                    .catch(function(error) {
+                        console.log(error);
+                        return res.status(500).json({
+                            error: error.message
+                        });
                     });
-                });
+            }
         })
         .catch(function(error) {
             return res.status(500).json({
