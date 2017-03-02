@@ -1,5 +1,9 @@
 <div class="card">
     <div class="content">
+        <div class="floated right ui image">
+            <i class="wicon wi {{ weather.weather[0].icon | convertIcon }}" alt="{{ weather.weather[0].description }}"></i>
+            <p>{{ weather.weather[0].description }}</p>
+        </div>
         <a class="header">{{ name }}</a>{{ status | convertStatusCode}}
         <div class="meta">
             <span>{{ location.pads.name }}</span>
@@ -10,8 +14,5 @@
         <div class="extra">
             {{ windowstart | stripTimeWindow }} to {{ windowend | stripTimeWindow }}
         </div>
-    </div>
-    <div class="floated right">
-        <i class="wi {{ weather.weather[0].icon | convertIcon }}" alt="{{ weather.weather[0].description }}"></i>
     </div>
 </div>
