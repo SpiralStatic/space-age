@@ -12,6 +12,6 @@
         </div>
     </div>
     <div class="floated right">
-        <p>{{ launchCtrl.weather.weather.indexOf('icon') }}</p>
+        <i class="{{ weather.weather[0].icon}} || convertIcon" alt="{{ weather.weather[0].description }}"></i>
     </div>
 </div>
