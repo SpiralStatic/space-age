@@ -2,7 +2,7 @@ angular
     .module('SpaceAgeApp')
     .controller('LaunchController', LaunchController);
 
-function LaunchController(Launch, Weather, $stateParams) {
+function LaunchController(Launch, Weather, GoogleMap, $stateParams) {
     var self = this;
     self.launches = [];
     self.launch = {};
