@@ -19,10 +19,10 @@
                 </launch>
 
                 <h3>Map</h3>
-                <div ng-controller="MapController as mapCtrl">
-                    <div ng-init="mapCtrl.getMap()">
-                    <ui-gmap-google-map center='mapCtrl.center' zoom='mapCtrl.zoom'></ui-gmap-google-map>
-                </div>
+                <div ng-controller="MapController as mapCtrl" ng-init="mapCtrl.createMap()">
+                    <div ng-if="mapCtrl.ready">
+                        <ui-gmap-google-map center="launchCtrl.center" zoom="7"></ui-gmap-google-map>
+                    </div>
                 </div>
             </div>
         </div>

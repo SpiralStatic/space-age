@@ -36,7 +36,6 @@ function indexLaunches(req, res) {
                     .then((function(j) {
                         return function(weatherResponse) {
                             response.launches[j].weather = weatherResponse;
-                            console.log("Weather: " + JSON.stringify(response.launches[j].weather));
 
                             if(completedResponses === (response.launches.length - 1)) {
                                 res.status(200).json(response);
@@ -46,7 +45,6 @@ function indexLaunches(req, res) {
                         };
                     })(i))
                     .catch(function(error) {
-                        console.log(error);
                         return res.status(500).json({
                             error: error.message
                         });

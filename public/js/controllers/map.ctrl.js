@@ -4,17 +4,17 @@ angular
 
 function MapController(uiGmapGoogleMapApi) {
     var self = this;
+    self.ready = false;
 
-    self.center = {
-        latitude: 45,
-        longitude: -73
-    };
-    self.zoom = 8;
-
-    self.getMap = function() {
-        uiGmapGoogleMapApi.then(function(maps) {
-            console.log(maps);
-            console.log("map");
-        });
+    self.createMap = function() {
+        uiGmapGoogleMapApi
+            .then(function(maps) {
+                setTimeout(function() {
+                    self.ready = true;
+                }, 100);
+            })
+            .catch(function(error) {
+                self.error = error;
+            });
     };
 }
