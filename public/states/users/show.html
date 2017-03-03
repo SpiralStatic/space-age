@@ -1,8 +1,23 @@
 <section ng-controller="UserController as userCtrl">
     <div id='navbar' ui-view='navbar'></div>
+    <div class="ui centered grid">
+        <div class="twelve wide column" ng-init="userCtrl.getUser()">
+            <h1>User Profile</h1>
 
-    <div class="twelve wide column" ng-init="userCtrl.getUser()">
-        <h1>User Profile</h1>
+            <div class="ui form">
+                <div class="field">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" value="{{ authCtrl.user.email }}" readonly>
+                </div>
 
+                <div class="field">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" value="thisIsNotThePassword" readonly>
+                </div>
+
+                <button class="ui icon labeled button" ui-sref="favorites"><i class="favorite icon"></i>Favorites</button>
+                <button class="ui icon labeled button" ui-sref="edit"><i class="edit icon"></i>Edit</button>
+            </div>
+        </div>
     </div>
 </section>

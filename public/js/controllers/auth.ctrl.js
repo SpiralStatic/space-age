@@ -71,6 +71,29 @@ function AuthController(Auth, User, $scope, $state, LoginService) {
         $state.go('home');
     };
 
+    self.updateCredentials = function() {
+        var user = firebase.auth().currentUser;
+        var newEmail = self.email;
+        var newPassword = self.password;
+
+        if (user.email !== newEmail) {
+            user.updateEmail("user@example.com").then(function() {
+                // Update successful.
+            }, function(error) {
+                // An error happened.
+            });
+        }
+
+        if (user.password !== newPassord) {
+            user.updatePassword(newPassword)
+                .then(function() {
+                    resetCredentials();
+                }, function(error) {
+                    // An error happened.
+                });
+        }
+    };
+
     Auth.$onAuthStateChanged(function(user) {
         self.user = user;
     });
@@ -89,6 +112,6 @@ function AuthController(Auth, User, $scope, $state, LoginService) {
     $scope.$watch(function() {
         return LoginService.isHidden;
     }, function(newVal, oldVal) {
-        if(newVal !== oldVal) self.isHidden = newVal;
+        if (newVal !== oldVal) self.isHidden = newVal;
     });
 }

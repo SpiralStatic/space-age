@@ -3,9 +3,9 @@ angular
     .controller('UserController', UserController);
 
 function UserController(User) {
-    let self = this;
+    var self = this;
 
-    self.getUser = function(userId) {
-        console.log("Got User: " + userId);
+    self.getUser = function() {
+        console.log("Got User");
     };
 }

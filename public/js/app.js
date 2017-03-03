@@ -91,7 +91,7 @@ function MainRouter($stateProvider, $urlRouterProvider, $locationProvider, uiGma
             url: '/profile',
             views: {
                 '': {
-                    templateUrl: '/states/profile/show.html'
+                    templateUrl: '/states/users/show.html'
                 },
                 'navbar@profile': {
                     templateUrl: '/states/partials/_navbar.html'
