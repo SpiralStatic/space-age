@@ -1,38 +1,49 @@
 <section>
     <div id='navbar' ui-view='navbar'></div>
-    <div class="header">Register</div>
-    <div class="content" ng-if="!user">
-        <button ng-click="signIn()" class="ui google plus button">
-            <i class="google icon"></i> Google
-        </button>
 
-        <button ng-click="signIn()" class="ui facebook button">
-            <i class="facebook icon"></i> Facebook
-        </button>
+    <div class="ui centered grid">
+        <div class="fourteen wide mobile eight wide computer column">
+            <div class="ui fluid card">
+                <div class="content" ng-if="!user">
+                    <div class="header">
+                        <h3>Register</h3>
+                    </div>
 
-        <div class="ui form">
-            <div class="field">
-                <label for: "email">Email:</label>
-                <input type="text" name="email" ng-model="authCtrl.email" placeholder="Enter Email" required>
+                    <div class="meta">
+                        <button ng-click="authCtrl.googleSignIn()" class="ui google plus button">
+                            <i class="google icon"></i> Google
+                        </button>
+
+                        <button ng-click="" class="ui facebook button">
+                            <i class="facebook icon"></i> Facebook
+                        </button>
+                    </div>
+
+                    <div class="ui form description">
+                        <div class="field">
+                            <label for: "email">Email:</label>
+                            <input type="text" name="email" ng-model="authCtrl.email" placeholder="Enter Email" required>
+                        </div>
+
+                        <div class="field">
+                            <label for: "password">Password:</label>
+                            <input type="text" name="password" ng-model="authCtrl.password" placeholder="Enter Password" required>
+                        </div>
+
+                        <p ng-if="authCtrl.error">
+                            Error: <span class="bold">{{ authCtrl.error }}</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="extra content" ng-if="loginCtrl.user">
+                    <p>You are already registered / logged in</hp>
+                </div>
+
+                <div class="right floated extra content">
+                    <button ng-click="authCtrl.createUser()" class="ui positive approve button">Register</button>
+                </div>
             </div>
-
-            <div class="field">
-                <label for: "password">Password:</label>
-                <input type="text" name="password" ng-model="authCtrl.password" placeholder="Enter Password" required>
-            </div>
-
-            <p ng-if="authCtrl.error">
-                Error: <span class="bold">{{ authCtrl.error }}</span>
-            </p>
         </div>
-    </div>
-
-    <div class="content" ng-if="authCtrl.user">
-        <p>You are already logged in</hp>
-    </div>
-
-    <div class="actions">
-        <button ng-click="authCtrl.loginHide()" class="ui negative cancel button">Cancel</button>
-        <button ng-click="authCtrl.createUser()" class="ui positive approve button">Register</button>
     </div>
 </section>
