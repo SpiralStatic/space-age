@@ -25,10 +25,10 @@ function LaunchController(Launch, Weather, $stateParams) {
         Launch.get(id)
             .then(function(response) {
                 console.log(response);
-                self.launch = response.data.launches;
+                self.launch = response.data.launches[0];
             })
             .catch(function(error) {
-
+                self.error = error;
             });
     };
 }

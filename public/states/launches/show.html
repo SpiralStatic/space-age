@@ -3,10 +3,20 @@
     <div class="ui centered grid">
         <div class="twelve wide column">
             <h1>Launch</h1>
-            <div ng-init="launchCtrl.getLaunch()">
-                <div>
-
-                </div>
+            <div class="ui items" ng-init="launchCtrl.getLaunch()">
+                <h3>Info</h3>
+                <launch
+                    id="launchCtrl.launch.id"
+                    name="launchCtrl.launch.name"
+                    status="launchCtrl.launch.status"
+                    windowstart="launchCtrl.launch.windowstart"
+                    windowend="launchCtrl.launch.windowend"
+                    locations="launchCtrl.launch.location"
+                    rockets="launchCtrl.launch.rockets"
+                    missions="launchCtrl.launch.missions"
+                    infoURLs="launchCtrl.launch.infoURLs"
+                    weather="launchCtrl.launch.weather">
+                </launch>
             </div>
         </div>
     </div>
