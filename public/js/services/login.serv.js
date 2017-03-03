@@ -3,9 +3,13 @@ angular
     .factory('LoginService', LoginService);
 
 function LoginService() {
-    return {
-        sharedObject: {
-            loginHidden: '',
-        }
+    var self = this;
+
+    self.isHidden = false;
+
+    self.toggle = function(){
+        self.isHidden = !self.isHidden;
     };
+
+    return self;
 }

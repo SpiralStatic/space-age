@@ -2,9 +2,9 @@ angular
     .module('SpaceAgeApp')
     .controller('AuthController', AuthController);
 
-function AuthController(Auth, User, $scope, $state) {
+function AuthController(Auth, User, $scope, $state, LoginService) {
     var self = this;
-    self.isHidden = false;
+    self.isHidden = LoginService.isHidden;
 
     self.createUser = function() {
         Auth.$createUserWithEmailAndPassword(self.email, self.password)
@@ -81,6 +81,14 @@ function AuthController(Auth, User, $scope, $state) {
     }
 
     self.toggleLogin = function() {
-        self.isHidden = !self.isHidden;
+        LoginService.toggle();
+        self.isHidden = LoginService.isHidden;
+        console.log(self.isHidden);
     };
+
+    $scope.$watch(function() {
+        return LoginService.isHidden;
+    }, function(newVal, oldVal) {
+        if(newVal !== oldVal) self.isHidden = newVal;
+    });
 }
