@@ -8,6 +8,7 @@ function LaunchDirective() {
         replace: true,
         templateUrl: 'js/directives/launch.dir.html',
         scope: {
+            id: '=',
             name: '=',
             locations: '=',
             rockets: '=',
