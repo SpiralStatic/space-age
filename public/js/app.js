@@ -1,10 +1,17 @@
 angular
-    .module('SpaceAgeApp', ['ui.router', 'firebase'])
+    .module('SpaceAgeApp', ['ui.router', 'firebase', 'uiGmapgoogle-maps'])
     .constant('API', 'http://localhost:3000/api')
     .config(MainRouter)
     .run(AuthCatcher);
 
-function MainRouter($stateProvider, $urlRouterProvider, $locationProvider) {
+function MainRouter($stateProvider, $urlRouterProvider, $locationProvider, uiGmapGoogleMapApiProvider) {
+
+    uiGmapGoogleMapApiProvider.configure({
+        key: 'AIzaSyDqeYhEcDEw7fQH-N8vE0eXrlgHDjU7gJA',
+        v: '3.20', //defaults to latest 3.X anyhow
+        libraries: 'weather,geometry,visualization'
+    });
+
     var authRequired = {
         currentAuth: function(Auth) {
             return Auth.$requireSignIn();

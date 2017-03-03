@@ -19,7 +19,11 @@
                 </launch>
 
                 <h3>Map</h3>
-                <img id="map" src="{{ launchCtrl.image }}" ng-init="launchCtrl.getMap()"></div>
+                <div ng-controller="MapController as mapCtrl">
+                    <div ng-init="mapCtrl.getMap()">
+                    <ui-gmap-google-map center='mapCtrl.center' zoom='mapCtrl.zoom'></ui-gmap-google-map>
+                </div>
+                </div>
             </div>
         </div>
     </div>
