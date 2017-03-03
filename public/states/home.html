@@ -1,15 +1,24 @@
 <section>
     <div id='navbar' ui-view='navbar'></div>
+
     <div class="ui centered grid">
         <div class="twelve wide column">
             <h1>Home</h1>
+        </div>
 
-            <div>
-                <a href="#" ui-sref="launches">Launches</a>
+        <div class="sixteen wide column">
+            <div class="parallax-layer parallax-first">
+                <div class="parallax-link">
+                    <a href="#" ui-sref="launches">Launches</a>
+                </div>
             </div>
 
-            <div>
-                <a href="#" ui-sref="news">News</a>
+            <div class="parallax-layer parallax-second"></div>
+
+            <div class="parallax-layer parallax-third">
+                <div class="parallax-link">
+                    <a href="#" ui-sref="news">News</a>
+                </div>
             </div>
         </div>
     </div>

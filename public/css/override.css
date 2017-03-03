@@ -55,7 +55,50 @@
 }
 
 .text-center {
-    margin: 10%;
     width: 100%;
     text-align: center;
+}
+
+
+/*----=Parallax Effect=----*/
+
+.parallax-layer {
+    height: 90vh;
+}
+
+.parallax-first {
+    margin-top: -5vh;
+    background-image: url('../images/rocket.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.parallax-second {
+    height: 45vh;
+    margin: -5vh, 0, 0, 0;
+    margin-top: -5vh;
+    background-color: white;
+}
+
+.parallax-third {
+    margin-top: -5vh;
+    background-image: url('../images/earth.gif');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.parallax-link {
+    position: relative;
+    text-align: center;
+    top: 25%;
+    transform: translateY(-75%);
+}
+
+.parallax-link>a {
+    padding: 2vh;
+    font-size: 2rem;
+    border-radius: 30%;
+    background-color: white;
 }
