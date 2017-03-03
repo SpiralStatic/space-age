@@ -37,7 +37,7 @@ function indexLaunches(req, res) {
                         return function(weatherResponse) {
                             response.launches[j].weather = weatherResponse;
 
-                            if(completedResponses === (response.launches.length - 1)) {
+                            if (completedResponses === (response.launches.length - 1)) {
                                 res.status(200).json(response);
                             } else {
                                 completedResponses++;
@@ -69,28 +69,32 @@ function showLaunch(req, res) {
 
     rpromise(launchOptions)
         .then(function(response) {
-            //var pad = response.launches[i].location.pads[0];
+            var pad = response.launches[0].location.pads[0];
 
-            // rpromise(weatherOptions)
-            //     .then((function(j) {
-            //         return function(weatherResponse) {
-            //             response.launches[j].weather = weatherResponse;
-            //             console.log("Weather: " + JSON.stringify(response.launches[j].weather));
-            //
-            //             if(completedResponses === (response.launches.length - 1)) {
-            //                 res.status(200).json(response);
-            //             } else {
-            //                 completedResponses++;
-            //             }
-            //         };
-            //     })(i))
-            //     .catch(function(error) {
-            //         console.log(error);
-            //         return res.status(500).json({
-            //             error: error.message
-            //         });
-            //     });
-            res.status(200).json(response);
+            var weatherOptions = {
+                uri: 'http://api.openweathermap.org/data/2.5/weather',
+                qs: {
+                    lat: pad.latitude,
+                    lon: pad.longitude,
+                    APPID: weatherAPI
+                },
+                headers: {
+                    'User-Agent': 'Request-Promise'
+                },
+                json: true // Automatically parses the JSON string in the response
+            };
+
+            rpromise(weatherOptions)
+                .then(function(weatherResponse) {
+                    response.launches[0].weather = weatherResponse;
+
+                    res.status(200).json(response);
+                })
+                .catch(function(error) {
+                    return res.status(500).json({
+                        error: error.message
+                    });
+                });
         })
         .catch(function(error) {
             return res.status(500).json({
