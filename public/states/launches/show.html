@@ -25,6 +25,11 @@
                         <ui-gmap-google-map center="launchCtrl.center" zoom="8"></ui-gmap-google-map>
                     </div>
                 </div>
+
+                <h2 id="info">Additonal Information</h2>
+                <p>Current Status: {{ launchCtrl.launch.status | convertStatusCode }}</p>
+                <p ng-if="launchCtrl.launch.vidURLs[0]">See on video: <a href="{{ launchCtrl.launch.vidURLs[0] }}">{{ launchCtrl.launch.vidURLs[0] }}</a>
+                <p ng-if="launchCtrl.launch.infoURLs[0]">More info: <a href="{{ launchCtrl.launch.infoURLs[0] }}">{{ launchCtrl.launch.infoURLs[0] }}</a>
             </div>
         </div>
     </div>
