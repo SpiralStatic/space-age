@@ -33,7 +33,7 @@
     </div>
 
     <div class="actions">
-        <button ng-click="loginCtrl.toggleLogin()" class="ui negative cancel button">Cancel</button>
-        <button ng-if="!loginCtrl.user" ng-click="loginCtrl.signIn(); loginCtrl.toggleLogin()" class="ui positive approve button">Login</button>
+        <button ng-click="loginCtrl.toggleLogin()" class="ui negative cancel button"><i class="ban icon"></i>Cancel</button>
+        <button ng-if="!loginCtrl.user" ng-click="loginCtrl.signIn(); loginCtrl.toggleLogin()" class="ui positive approve button"><i class="sign in icon"></i>Login</button>
     </div>
 </div>

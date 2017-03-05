@@ -67,6 +67,10 @@
     text-align: center;
 }
 
+.grayscale {
+    filter: grayscale(100%);
+}
+
 
 /*----=Parallax Effect=----*/
 
