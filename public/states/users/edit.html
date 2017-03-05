@@ -7,12 +7,12 @@
             <div class="ui form">
                 <div class="field">
                     <label for="email">Email:</label>
-                    <input type="text" name="email" ng-model="authCtrl.email" placeholder="{{ authCtrl.user.email }}" required>
+                    <input type="text" id="email" ng-model="authCtrl.email" placeholder="{{ authCtrl.user.email }}" required>
                 </div>
 
                 <div class="field">
                     <label for="password">Password:</label>
-                    <input type="text" name="password" ng-model="authCtrl.password" placeholder="Password" required>
+                    <input type="text" id="password" ng-model="authCtrl.password" placeholder="Password" required>
                 </div>
 
                 <button class="ui right floated icon labeled green button" ng-click="authCtrl.updateCredentials(); userCtrl.editSubmit()"><i class="send outline icon"></i>Submit</button>

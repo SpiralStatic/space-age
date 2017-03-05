@@ -12,8 +12,8 @@
         </div>
         <div class="extra">
             <p>{{ windowstart | stripTimeWindow }} to {{ windowend | stripTimeWindow }}</p>
-            <button class="ui labeled icon google plus button right floated"><i class="google icon"></i>Add to Calender</button>
-            <button class="ui icon blue button right floated" ui-sref="showlaunch({ id: id, '#': map })"><i class="compass icon"></i></button>
+            <button class="ui labeled icon google plus button right floated" aria-label="Add to google calender"><i class="google icon"></i>Add to Calender</button>
+            <button class="ui icon blue button right floated" ui-sref="showlaunch({ id: id, '#': map })" aria-label="Go to launch map"><i class="compass icon"></i></button>
         </div>
     </div>
     <div class="image">

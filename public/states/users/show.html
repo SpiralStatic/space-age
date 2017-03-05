@@ -7,12 +7,12 @@
             <div class="ui form">
                 <div class="field">
                     <label for="email">Email:</label>
-                    <input type="text" name="email" value="{{ authCtrl.user.email }}" readonly>
+                    <input type="text" id="email" value="{{ authCtrl.user.email }}" readonly>
                 </div>
 
                 <div class="field">
                     <label for="password">Password:</label>
-                    <input type="password" name="password" value="thisIsNotThePassword" readonly>
+                    <input type="password" id="password" value="thisIsNotThePassword" readonly>
                 </div>
 
                 <button class="ui right floated icon labeled yellow button" ui-sref="favorites"><i class="favorite icon"></i>Favorites</button>

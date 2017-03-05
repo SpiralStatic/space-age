@@ -4,7 +4,7 @@
         <div class="twelve wide column">
             <h1>Launch</h1>
             <div class="ui items" ng-init="launchCtrl.getLaunch()">
-                <h3>Info</h3>
+                <h2>Info</h2>
                 <launch
                     id="launchCtrl.launch.id"
                     name="launchCtrl.launch.name"
@@ -18,7 +18,7 @@
                     weather="launchCtrl.launch.weather">
                 </launch>
 
-                <h3 id="map">Map</h3>
+                <h2 id="map">Map</h2>
                 <h3><a href="https://www.google.com/maps/place/{{ launchCtrl.launch.location.name }}">{{ launchCtrl.launch.location.name }}</a></h3>
                 <div ng-controller="MapController as mapCtrl" ng-init="mapCtrl.createMap()">
                     <div ng-if="mapCtrl.ready">
