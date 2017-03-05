@@ -4,8 +4,8 @@ angular
 
 function LaunchFactory(API, $http) {
     return {
-        getAll: function() {
-            return $http.get(API + '/launches');
+        getAll: function(launchSize) {
+            return $http.get(API + '/launches/?launchsize=' + launchSize);
         },
         get: function(id) {
             return $http.get(API + '/launches/' + id);

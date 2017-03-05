@@ -6,12 +6,14 @@ function LaunchController(Launch, Weather, User, $stateParams) {
     var self = this;
     self.launches = [];
     self.launch = {};
+    self.launchCounter = 6;
     self.center = {};
 
     self.getLaunches = function() {
-        Launch.getAll()
+        Launch.getAll(self.launchCounter)
             .then(function(response) {
                 self.launches = response.data.launches;
+                self.launchCounter += 3;
             })
             .catch(function(error) {
                 self.error = error;

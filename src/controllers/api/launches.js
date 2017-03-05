@@ -4,7 +4,7 @@ var weatherAPI = process.env.WEATHERAPI;
 
 function indexLaunches(req, res) {
     var launchOptions = {
-        uri: 'http://www.launchlibrary.net/1.2/launch/next/6',
+        uri: 'http://www.launchlibrary.net/1.2/launch/next/' + req.query.launchsize,
         headers: {
             'User-Agent': 'Mozilla/5.0'
         },
