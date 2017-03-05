@@ -10,8 +10,14 @@ function NewsDirective() {
         scope: {
             id: '=',
             title: '=',
-            publicationDate: '=',
+            subtext: '=',
+            date: '=',
+            thumbnail: '=',
             url: '='
+        },
+        link: function(scope, element, attrs) {
+            var subText = angular.element(element.find('p')[0]);
+            subText.html(scope.subtext);
         }
     };
 }

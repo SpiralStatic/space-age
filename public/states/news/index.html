@@ -8,7 +8,9 @@
                     ng-repeat="newsItem in newsCtrl.news"
                     id="newsItem.id"
                     title="newsItem.webTitle"
-                    publicationDate="newsItem.webPublicationDate"
+                    subtext="newsItem.fields.trailText"
+                    date="newsItem.webPublicationDate"
+                    thumbnail="newsItem.fields.thumbnail"
                     url="newsItem.webUrl">
                 </news>
             </div>

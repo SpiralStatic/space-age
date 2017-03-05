@@ -10,7 +10,6 @@ function NewsController(News, $stateParams) {
     self.getNews = function() {
         News.getAll()
             .then(function(response) {
-                console.log(response);
                 self.news = response.data.response.results;
                 console.log(self.news);
             })

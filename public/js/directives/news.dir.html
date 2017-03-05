@@ -3,16 +3,17 @@
         <div class="header">
             <a href="{{ url }}">{{ title }}</a>
         </div>
-        <div class="meta">
-            <p>{{ publicationDate }}</p>
-        </div>
+
         <div class="description">
-            <p>{{ publicationDate }}</p>
+            <p>{{ subtext }}</p>
         </div>
+
         <div class="extra">
-            <p></p>
+            <p>{{ date | stripTimeWindow }}
         </div>
     </div>
+
     <div class="image">
+        <img src="{{ thumbnail }}" alt="Article Thumbnail">
     </div>
 </div>
