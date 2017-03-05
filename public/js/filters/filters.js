@@ -84,3 +84,13 @@ app.filter('convertIcon', function() {
         return output[0].icon;
     };
 });
+
+app.filter('capitaliseWords', function() {
+    return function(input) {
+        var string = input.split(' ');
+        for(var word in string) {
+            string[word] = string[word][0].toUpperCase() + string[word].slice(1);
+        }
+        return string.join(' ');
+    };
+});
