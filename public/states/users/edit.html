@@ -1,0 +1,25 @@
+<section ng-controller="UserController as userCtrl">
+    <div id='navbar' ui-view='navbar'></div>
+    <div class="ui centered grid">
+        <div class="twelve wide column" ng-init="userCtrl.getUser()">
+            <h1>Edit Profile</h1>
+
+            <div class="ui form">
+                <div class="field">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" ng-model="authCtrl.email" placeholder="{{ authCtrl.user.email }}" required>
+                </div>
+
+                <div class="field">
+                    <label for="password">Password:</label>
+                    <input type="text" name="password" ng-model="authCtrl.password" placeholder="Password" required>
+                </div>
+
+                <button class="ui right floated icon labeled button" ng-click="authCtrl.updateCredentials(); userCtrl.editSubmit()"><i class="send outline icon"></i>Submit</button>
+
+                <button class="ui right floated icon labeled button" ui-sref="profile"><i class="arrow circle outline left icon"></i>Back</button>
+
+            </div>
+        </div>
+    </div>
+</section>

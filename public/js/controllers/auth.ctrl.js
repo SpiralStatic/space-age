@@ -30,8 +30,10 @@ function AuthController(Auth, User, $scope, $state, LoginService) {
         Auth.$signInWithEmailAndPassword(self.email, self.password)
             .then(function(user) {
                 resetCredentials();
+                $state.go('home');
             })
             .catch(function(error) {
+                console.log(error);
                 self.error = error;
             });
     };
@@ -77,18 +79,23 @@ function AuthController(Auth, User, $scope, $state, LoginService) {
         var newPassword = self.password;
 
         if (user.email !== newEmail) {
-            user.updateEmail("user@example.com").then(function() {
-                // Update successful.
-            }, function(error) {
-                // An error happened.
-            });
+            user.updateEmail(newEmail)
+                .then(function() {
+                    // Update successful.
+                })
+                .catch(function(error) {
+                    console.log(error);
+                    // An error happened.
+                });
         }
 
-        if (user.password !== newPassord) {
+        if (user.password !== newPassword) {
             user.updatePassword(newPassword)
                 .then(function() {
                     resetCredentials();
-                }, function(error) {
+                })
+                .catch(function(error) {
+                    console.log(error);
                     // An error happened.
                 });
         }
@@ -106,7 +113,6 @@ function AuthController(Auth, User, $scope, $state, LoginService) {
     self.toggleLogin = function() {
         LoginService.toggle();
         self.isHidden = LoginService.isHidden;
-        console.log(self.isHidden);
     };
 
     $scope.$watch(function() {

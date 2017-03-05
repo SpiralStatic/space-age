@@ -97,6 +97,17 @@ function MainRouter($stateProvider, $urlRouterProvider, $locationProvider, uiGma
                     templateUrl: '/states/partials/_navbar.html'
                 }
             }
+        })
+        .state('editprofile', {
+            url: '/editprofile',
+            views: {
+                '': {
+                    templateUrl: '/states/users/edit.html'
+                },
+                'navbar@editprofile': {
+                    templateUrl: '/states/partials/_navbar.html'
+                }
+            }
         });
 
     $urlRouterProvider.otherwise('/');
