@@ -4,7 +4,13 @@
         <div class="twelve wide column" ng-init="newsCtrl.getNews()">
             <h1>News</h1>
             <div class="ui divided items">
-                <news ng-repeat="newsItem in newsCtrl.news"></news>
+                <news
+                    ng-repeat="newsItem in newsCtrl.news"
+                    id="newsItem.id"
+                    title="newsItem.webTitle"
+                    publicationDate="newsItem.webPublicationDate"
+                    url="newsItem.webUrl">
+                </news>
             </div>
         </div>
     </div>

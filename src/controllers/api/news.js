@@ -8,7 +8,8 @@ function indexNews(req, res) {
         },
         qs: {
             'section': 'science',
-            'api-key': process.env.GUARDIANAPI
+            'api-key': process.env.GUARDIANAPI,
+            'show-fields': 'thumbnail,trailText'
         },
         json: true // Automatically parses the JSON string in the response
     };

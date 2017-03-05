@@ -8,7 +8,10 @@ function NewsDirective() {
         replace: true,
         templateUrl: 'js/directives/news.dir.html',
         scope: {
-
+            id: '=',
+            title: '=',
+            publicationDate: '=',
+            url: '='
         }
     };
 }

@@ -11,7 +11,8 @@ function NewsController(News, $stateParams) {
         News.getAll()
             .then(function(response) {
                 console.log(response);
-                //self.news = response.data.news;
+                self.news = response.data.response.results;
+                console.log(self.news);
             })
             .catch(function(error) {
                 self.error = error;
