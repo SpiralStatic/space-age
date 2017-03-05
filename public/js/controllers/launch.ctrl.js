@@ -2,7 +2,7 @@ angular
     .module('SpaceAgeApp')
     .controller('LaunchController', LaunchController);
 
-function LaunchController(Launch, Weather, $stateParams) {
+function LaunchController(Launch, Weather, User, $stateParams) {
     var self = this;
     self.launches = [];
     self.launch = {};
@@ -20,7 +20,6 @@ function LaunchController(Launch, Weather, $stateParams) {
 
     self.getLaunch = function() {
         var id = $stateParams.id;
-        console.log(id);
 
         Launch.get(id)
             .then(function(response) {
@@ -31,6 +30,19 @@ function LaunchController(Launch, Weather, $stateParams) {
                     longitude: self.launch.location.pads[0].longitude
                 };
                 console.log("LAUNCH", self.center);
+            })
+            .catch(function(error) {
+                self.error = error;
+            });
+    };
+
+    self.addToFavorites = function() {
+        var user = firebase.auth().currentUser;
+        var id = $stateParams.id;
+
+        User.update(user.uid, id)
+            .then(function(response) {
+                console.log(response);
             })
             .catch(function(error) {
                 self.error = error;
