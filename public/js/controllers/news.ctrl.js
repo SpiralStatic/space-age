@@ -6,12 +6,14 @@ function NewsController(News, $stateParams) {
     var self = this;
     self.news = [];
     self.newsItem = {};
+    self.newsCounter = 10;
 
     self.getNews = function() {
-        News.getAll()
+        News.getAll(self.newsCounter)
             .then(function(response) {
+                console.log(response);
                 self.news = response.data.response.results;
-                console.log(self.news);
+                self.newsCounter += 10;
             })
             .catch(function(error) {
                 self.error = error;

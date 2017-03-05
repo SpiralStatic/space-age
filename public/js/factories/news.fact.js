@@ -4,8 +4,8 @@ angular
 
 function NewsFactory(API, $http) {
     return {
-        getAll: function() {
-            return $http.get(API + '/news');
+        getAll: function(pageSize) {
+            return $http.get(API + '/news?pages=' + pageSize);
         },
         get: function(id) {
             return $http.get(API + '/news/' + id);

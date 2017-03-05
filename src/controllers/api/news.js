@@ -8,6 +8,8 @@ function indexNews(req, res) {
         },
         qs: {
             'section': 'science',
+            'q': 'space | rocket',
+            'page-size': req.query.pages,
             'api-key': process.env.GUARDIANAPI,
             'show-fields': 'thumbnail,trailText'
         },
