@@ -5,7 +5,7 @@
             <i class="favorite icon"></i>
         </div>
         <div class="meta">
-            <p>{{ locations.pads[0].name }}</p>
+            <p>{{ location.pads[0].name }}</p>
         </div>
         <div class="description">
             <p>{{ missions[0].description }}</p>
@@ -13,7 +13,7 @@
         <div class="extra">
             <p>{{ windowstart | stripTimeWindow }} to {{ windowend | stripTimeWindow }}</p>
             <button class="ui labeled icon button right floated"><i class="google icon"></i>Add to Calender</button>
-            <button class="ui icon button right floated"><i class="compass icon"></i></button>
+            <button class="ui icon button right floated" ui-sref="showlaunch({ id: id, '#': map })"><i class="compass icon"></i></button>
         </div>
     </div>
     <div class="image">

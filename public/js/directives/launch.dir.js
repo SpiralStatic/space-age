@@ -10,7 +10,7 @@ function LaunchDirective() {
         scope: {
             id: '=',
             name: '=',
-            locations: '=',
+            location: '=',
             rockets: '=',
             missions: '=',
             status: '=',

@@ -11,14 +11,15 @@
                     status="launchCtrl.launch.status"
                     windowstart="launchCtrl.launch.windowstart"
                     windowend="launchCtrl.launch.windowend"
-                    locations="launchCtrl.launch.location"
+                    location="launchCtrl.launch.location"
                     rockets="launchCtrl.launch.rockets"
                     missions="launchCtrl.launch.missions"
                     infoURLs="launchCtrl.launch.infoURLs"
                     weather="launchCtrl.launch.weather">
                 </launch>
 
-                <h3>Map</h3>
+                <h3 id="map">Map</h3>
+                <h3><a href="https://www.google.com/maps/place/{{ launchCtrl.launch.location.name }}">{{ launchCtrl.launch.location.name }}</a></h3>
                 <div ng-controller="MapController as mapCtrl" ng-init="mapCtrl.createMap()">
                     <div ng-if="mapCtrl.ready">
                         <ui-gmap-google-map center="launchCtrl.center" zoom="8"></ui-gmap-google-map>

@@ -2,7 +2,7 @@ angular
     .module('SpaceAgeApp', ['ui.router', 'firebase', 'uiGmapgoogle-maps'])
     .constant('API', 'http://localhost:3000/api')
     .config(MainRouter)
-    .run(AuthCatcher);
+    .run(AuthCatcher, FragmentCatcher);
 
 function MainRouter($stateProvider, $urlRouterProvider, $locationProvider, uiGmapGoogleMapApiProvider) {
 
@@ -117,7 +117,17 @@ function MainRouter($stateProvider, $urlRouterProvider, $locationProvider, uiGma
 }
 
 function AuthCatcher($rootScope, $state) {
-    $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
-        if (error === "AUTH_REQUIRED") $state.go('register');
-    });
+    $rootScope.$on('$stateChangeError',
+        function(event, toState, toParams, fromState, fromParams, error) {
+            if (error === "AUTH_REQUIRED") $state.go('register');
+        });
+}
+
+function FragmentCatcher($rootScope, $state) {
+    $rootScope.$on('$stateChangeStart',
+        function(event, toState, toParams, fromState, fromParams) {
+            var hash = $location.hash();
+            if (hash) toParams['#'] = hash;
+        }
+    );
 }
