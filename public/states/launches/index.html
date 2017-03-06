@@ -8,7 +8,6 @@
                 <launch
                     ng-repeat="launch in launchCtrl.launches track by $index"
                     id="launch.id"
-                    index="$index"
                     name="launch.name"
                     status="launch.status"
                     windowstart="launch.windowstart"
@@ -18,7 +17,7 @@
                     missions="launch.missions"
                     infoURLs="launch.infoURLs"
                     weather="launch.weather"
-                    addtofavorites="launchCtrl.addToFavorites()" >
+                    addtofavorites="launchCtrl.addToFavorites($index)" >
                 </launch>
 
                 <button class="ui fluid animated fade labeled icon button" ng-click="launchCtrl.getLaunches()">
