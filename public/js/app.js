@@ -4,20 +4,24 @@ angular
     .config(MainRouter)
     .run(AuthCatcher, FragmentCatcher);
 
+/* Main Router that controls states and the movement between them */
 function MainRouter($stateProvider, $urlRouterProvider, $locationProvider, uiGmapGoogleMapApiProvider) {
 
+    /* Set up google maps API with needed settings, including key */
     uiGmapGoogleMapApiProvider.configure({
         key: 'AIzaSyDqeYhEcDEw7fQH-N8vE0eXrlgHDjU7gJA',
         v: '3.20', //defaults to latest 3.X anyhow
         libraries: 'weather,geometry,visualization'
     });
 
+    /* Function to check authorisation */
     var authRequired = {
         currentAuth: function(Auth) {
             return Auth.$requireSignIn();
         }
     };
 
+    /* Determines available states */
     $stateProvider
         .state('home', {
             url: '/',
@@ -121,18 +125,20 @@ function MainRouter($stateProvider, $urlRouterProvider, $locationProvider, uiGma
             }
         });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/'); // Else route to root ('home')
 
     // $locationProvider.html5Mode(true);
 }
 
+/* At state change determines if user is authorised */
 function AuthCatcher($rootScope, $state) {
     $rootScope.$on('$stateChangeError',
         function(event, toState, toParams, fromState, fromParams, error) {
-            if (error === "AUTH_REQUIRED") $state.go('register');
+            if (error === "AUTH_REQUIRED") $state.go('register'); // If not authorised route to register state
         });
 }
 
+/* Catches if # is within URL for fragment viewing */
 function FragmentCatcher($rootScope, $state) {
     $rootScope.$on('$stateChangeStart',
         function(event, toState, toParams, fromState, fromParams) {

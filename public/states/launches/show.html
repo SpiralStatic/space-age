@@ -1,10 +1,13 @@
 <section ng-controller="LaunchController as launchCtrl">
     <div id='navbar' ui-view='navbar'></div>
+    
     <div class="ui centered grid">
         <div class="twelve wide column">
             <h1>Launch</h1>
+
             <div class="ui items" ng-init="launchCtrl.getLaunch()">
                 <h2>Info</h2>
+
                 <launch
                     id="launchCtrl.launch.id"
                     name="launchCtrl.launch.name"
@@ -19,7 +22,9 @@
                 </launch>
 
                 <h2 id="map">Map</h2>
+
                 <h3><a href="https://www.google.com/maps/place/{{ launchCtrl.launch.location.name }}">{{ launchCtrl.launch.location.name }}</a></h3>
+
                 <div ng-controller="MapController as mapCtrl" ng-init="mapCtrl.createMap()">
                     <div ng-if="mapCtrl.ready">
                         <ui-gmap-google-map center="launchCtrl.center" zoom="8"></ui-gmap-google-map>
@@ -27,8 +32,11 @@
                 </div>
 
                 <h2 id="info">Additonal Information</h2>
+
                 <p>Current Status: {{ launchCtrl.launch.status | convertStatusCode }}</p>
+
                 <p ng-if="launchCtrl.launch.vidURLs[0]">See on video: <a href="{{ launchCtrl.launch.vidURLs[0] }}">{{ launchCtrl.launch.vidURLs[0] }}</a>
+
                 <p ng-if="launchCtrl.launch.infoURLs[0]">More info: <a href="{{ launchCtrl.launch.infoURLs[0] }}">{{ launchCtrl.launch.infoURLs[0] }}</a>
             </div>
         </div>

@@ -1,5 +1,6 @@
 <section ng-controller="LaunchController as launchCtrl">
     <div id='navbar' ui-view='navbar'></div>
+    
     <div class="ui centered grid">
         <div class="twelve wide column" ng-init="launchCtrl.getLaunches()">
             <h1>Launches</h1>
@@ -24,6 +25,7 @@
                     <div class="visible content">
                         <i class="refresh icon"></i>
                     </div>
+
                     <div class="hidden content">
                         <i class="refresh icon"></i>More Launches
                     </div>
