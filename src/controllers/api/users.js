@@ -4,7 +4,7 @@ var Launch = require('../../models/launch.js');
 function showUser(req, res) {
     User.findOne({
         uid: req.params.id
-    }, function(err, user) {
+    }).populate('favorites').exec(function(err, user) {
         if (!user) return res.status(404).json({
             message: "User not found"
         });
@@ -37,7 +37,6 @@ function updateUser(req, res) {
         newLaunch.save(function (err, savedLaunch) {
             if(err && err.name === 'MongoError' && err.code === 11000) {
                 Launch.findOne({ launchId: req.body.favorites.launchId }, function(err, dbLaunch) {
-                    console.log("error");
                     user.favorites.push(dbLaunch._id);
                     return res.status(200).json(user);
                 });

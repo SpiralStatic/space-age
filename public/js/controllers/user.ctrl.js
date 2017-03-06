@@ -10,7 +10,8 @@ function UserController(User, UserService) {
     self.getUser = function() {
         User.get(self.user.uid)
             .then(function(response) {
-                self.userDetails = response;
+                self.userDetails = response.data;
+                console.log(self.userDetails);
             })
             .catch(function(error) {
                 self.error = error;

@@ -7,7 +7,7 @@
         </div>
 
         <launch
-            ng-repeat="launch in launchCtrl.user.favorites"
+            ng-repeat="launch in favorCtrl.userDetails.favorites" ng-init="launchCtrl.getLaunch({ id: launch.id })"
             id="launch.id"
             name="launch.name"
             status="launch.status"
