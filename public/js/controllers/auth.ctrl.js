@@ -2,9 +2,10 @@ angular
     .module('SpaceAgeApp')
     .controller('AuthController', AuthController);
 
-function AuthController(Auth, User, $scope, $state, LoginService) {
+function AuthController(Auth, User, $scope, $state, LoginService, UserService) {
     var self = this;
     self.isHidden = LoginService.isHidden;
+    self.user = UserService.user;
 
     self.createUser = function() {
         Auth.$createUserWithEmailAndPassword(self.email, self.password)
@@ -15,7 +16,7 @@ function AuthController(Auth, User, $scope, $state, LoginService) {
                     'uid': user.uid,
                     'favorites': []
                 }).then(function(dbUser) {
-
+                    self.theUser = user;
                 }).catch(function(dbError) {
                     self.error = dbError;
                 });
@@ -26,14 +27,12 @@ function AuthController(Auth, User, $scope, $state, LoginService) {
     };
 
     self.signIn = function() {
-        console.log("Sign in attempt");
         Auth.$signInWithEmailAndPassword(self.email, self.password)
             .then(function(user) {
                 resetCredentials();
                 $state.go('home');
             })
             .catch(function(error) {
-                console.log(error);
                 self.error = error;
             });
     };
@@ -84,8 +83,7 @@ function AuthController(Auth, User, $scope, $state, LoginService) {
                     // Update successful.
                 })
                 .catch(function(error) {
-                    console.log(error);
-                    // An error happened.
+                    self.error = error;
                 });
         }
 
@@ -95,14 +93,14 @@ function AuthController(Auth, User, $scope, $state, LoginService) {
                     resetCredentials();
                 })
                 .catch(function(error) {
-                    console.log(error);
-                    // An error happened.
+                    self.error = error;
                 });
         }
     };
 
     Auth.$onAuthStateChanged(function(user) {
         self.user = user;
+        UserService.setUser(user);
     });
 
     function resetCredentials() {

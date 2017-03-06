@@ -108,6 +108,17 @@ function MainRouter($stateProvider, $urlRouterProvider, $locationProvider, uiGma
                     templateUrl: '/states/partials/_navbar.html'
                 }
             }
+        })
+        .state('favorites', {
+            url: '/favorites',
+            views: {
+                '': {
+                    templateUrl: '/states/users/index.html'
+                },
+                'navbar@favorites': {
+                    templateUrl: '/states/partials/_navbar.html'
+                }
+            }
         });
 
     $urlRouterProvider.otherwise('/');

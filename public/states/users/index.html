@@ -1,0 +1,10 @@
+<section ng-controller="UserController as favorCtrl">
+    <div id='navbar' ui-view='navbar'></div>
+
+    <div class="ui centered grid">
+        <div class="twelve wide column" ng-init="favorCtrl.getUser()">
+            <h1>Your Favorites</h1>
+        </div>
+
+    </div>
+</section>
