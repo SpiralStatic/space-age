@@ -2,6 +2,7 @@ angular
     .module('SpaceAgeApp')
     .controller('AuthController', AuthController);
 
+/* Authorisation controller using firebase to track users credentials */
 function AuthController(Auth, User, $scope, $state, LoginService, UserService) {
     var self = this;
     self.isHidden = LoginService.isHidden; // Toggle login modal service
