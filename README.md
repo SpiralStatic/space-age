@@ -1,4 +1,7 @@
 # Space Age by Christopher Tsoi
+
+## About
+
 Web App that interacts with lauchlibrary.net's API amongst others to display upcoming rocket launches
 Space Age is a Node/Angular Web App that interacts with a variety of APIs including:
 * lauchlibrary.net
@@ -10,8 +13,7 @@ The purpose of the application is to display to users upcoming rocket launches a
 
 The app was developed created as an individual project during my training as a Web Developer at Sparta Global.
 
-The site is currently deployed on heroku:
-@ https://spaceage-one.herokuapp.com/#!/
+#### The site is currently deployed on heroku: @ https://spaceage-one.herokuapp.com/#!/
 
 It encompasses both a frontend angular application and backend node API. Some requirements include:
 * Node, express and mongo/mongoose for database
@@ -24,3 +26,75 @@ It encompasses both a frontend angular application and backend node API. Some re
 * Ui-router for states
 * Git tracked
 * Professional
+
+## Installation
+A number of steps are required if you would like to try to run this on your own machine.
+
+Requires a version of node to be installed
+
+1. Download the github project to a folder of your choice
+2. At the command line: npm install to retrieve the required packages
+3. Apply and recieve API keys for openweathermap.org, googlemaps and guardian.co.uk
+4. Run command nodemon within the src folder
+5. You should now have your own instance running on localhost:3000
+
+## Credits
+I would like to give my thanks to the rest of the team here at Sparta Global including my teammates, Niall Wallace, Ollie Holden and Stephen Reid
+
+## Creation
+### Theme
+The content of the site came about from my love of things relating to rockets et al.
+
+### Design
+#### MVP
+Before coding began the project was scoped out to align the MVP (Minimum Viable Product). These included:
+* Displays upcoming rocket launches
+* Displays a single rocket launch in more detail
+* Ability to mark them in some way for future reference (Favoriting and/or add to calender)
+* Display of space/rocket news
+
+#### User Control Flow
+The user control flow was then outlined:
+
+|        |                    |                       |
+| ------ |:------------------:| ---------------------:|
+| Home / | Users /users       | /, /new, /edit, /show |
+|        | Launches /launches | /, /show              |
+|        | News /news         | /, /show              |
+
+This gave a good idea of the sort of states that the single page application would have
+
+#### Wireframes
+For each of these states, condensed where possible, a quick wireframe sketch was drawn out.
+
+##### Home(Mobile) and Launches Index
+![alt text](readme/wireframe1.jpg "Home[Mobile] and Launches Index")
+
+##### Home
+![alt text](readme/wireframe2.jpg "Home")
+
+##### News and Register/Login
+![alt text](readme/wireframe3.jpg "News and Register/Login")
+
+#### Models
+The data that would be present in the database would then be modelled. This resulted in a sketch for a schema for a launch and one for a user.
+
+The fields within the model were determined by researching the APIs the project was going to use and through the postman APP sending real data to them and reading what was returned.
+
+Launch for example produced a large object that required dissecting to understand what data was needed.
+
+##### Example Launch Object
+![alt text](readme/exampleLaunch.png "Example Launch Object")
+
+#### Architecture
+The final step before the start of coding was the outlining of the basic tasks needed to be fulfilled and the architecture that would be created from it.
+
+### Coding
+The coding of the project was mostly a iterative process doing each small task or function one after the other. However, this was occasionally bypassed when some guidance was needed and other tasks were worked on in the meantime.
+
+The process also involved automated testing of the backend API through mocha/chai, though unfortunately this was not continued to the end.
+
+### Final Result
+
+
+## Conclusions
