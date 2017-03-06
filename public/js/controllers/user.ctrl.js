@@ -5,12 +5,12 @@ angular
 function UserController(User, UserService) {
     var self = this;
     self.user = UserService.user;
+    self.userDetails = {};
 
     self.getUser = function() {
-        console.log(self.user);
         User.get(self.user.uid)
             .then(function(response) {
-                console.log("ok");
+                self.userDetails = response;
             })
             .catch(function(error) {
                 self.error = error;
@@ -20,5 +20,4 @@ function UserController(User, UserService) {
     self.editSubmit = function() {
         $state.go('profile');
     };
-
 }

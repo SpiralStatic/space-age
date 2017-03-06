@@ -6,5 +6,18 @@
             <h1>Your Favorites</h1>
         </div>
 
+        <launch
+            ng-repeat="launch in launchCtrl.user.favorites"
+            id="launch.id"
+            name="launch.name"
+            status="launch.status"
+            windowstart="launch.windowstart"
+            windowend="launch.windowend"
+            location="launch.location"
+            rockets="launch.rockets"
+            missions="launch.missions"
+            infoURLs="launch.infoURLs"
+            weather="launch.weather">
+        </launch>
     </div>
 </section>

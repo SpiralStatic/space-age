@@ -4,9 +4,6 @@ angular
 
 function UserFactory(API, $http) {
     return {
-        getAll: function() {
-            return $http.get(API + '/users');
-        },
         get: function(id) {
             return $http.get(API + '/users/' + id);
         },

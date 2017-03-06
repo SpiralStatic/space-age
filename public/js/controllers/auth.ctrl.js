@@ -90,12 +90,13 @@ function AuthController(Auth, User, $scope, $state, LoginService, UserService) {
         if (user.password !== newPassword) {
             user.updatePassword(newPassword)
                 .then(function() {
-                    resetCredentials();
+
                 })
                 .catch(function(error) {
                     self.error = error;
                 });
         }
+        resetCredentials();
     };
 
     Auth.$onAuthStateChanged(function(user) {

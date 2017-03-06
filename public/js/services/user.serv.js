@@ -8,7 +8,6 @@ function UserService() {
 
     self.setUser = function(newUser) {
         self.user = newUser;
-        console.log(self.user);
     };
 
     return self;

@@ -10,7 +10,6 @@ router.route('/')
     .get(serveController.index);
 
 router.route('/api/users')
-    .get(apiUsersController.index)
     .post(apiUsersController.create);
 
 router.route('/api/users/:id')
