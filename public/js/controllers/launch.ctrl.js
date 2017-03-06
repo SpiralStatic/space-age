@@ -44,7 +44,7 @@ function LaunchController(Launch, Weather, User, $stateParams, UserService) {
         console.log("launches", self.launches);
         console.log("found", self.launches.indexOf(id));
 
-        User.update(self.user.uid, newUser = {
+        User.update(self.user.uid, updatedUser = {
                 favorites: self.launches.indexOf(id)
             })
             .then(function(response) {

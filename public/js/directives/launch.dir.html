@@ -2,7 +2,9 @@
     <div class="content">
         <div class="header {{ status | convertStatusCode }}">
             <a href="#" ui-sref="showlaunch({ id: id })">{{ name }}</a>
-            <i class="favorite icon" ng-click="addtofavorites({ id: index })"></i>
+            {{ id }}
+            {{ index }}
+            <i class="favorite icon" ng-click="addtofavorites({ id: id })"></i>
         </div>
         <div class="meta">
             <p>{{ location.pads[0].name }}</p>

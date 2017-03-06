@@ -11,7 +11,6 @@ function NewsController(News, $stateParams) {
     self.getNews = function() {
         News.getAll(self.newsCounter)
             .then(function(response) {
-                console.log(response);
                 self.news = response.data.response.results;
                 self.newsCounter += 10;
             })
