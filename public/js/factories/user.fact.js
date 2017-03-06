@@ -2,6 +2,7 @@ angular
     .module('SpaceAgeApp')
     .factory('User', UserFactory);
 
+/* Asks for and sends user related data to the backend API */
 function UserFactory(API, $http) {
     return {
         get: function(id) {

@@ -2,6 +2,7 @@ angular
     .module('SpaceAgeApp')
     .factory('Weather', WeatherFactory);
 
+/* Asks backend API for weather at location (Coordinates) */
 function WeatherFactory(API, $http) {
     return {
         get: function(lat, lon) {

@@ -1,6 +1,7 @@
 var app = angular
     .module('SpaceAgeApp');
 
+/* Converts given launch status [0,1,2,3] to related code */
 app.filter('convertStatusCode', function() {
     return function(input) {
         var codes = ['Green', 'Red', 'Succes', 'Fail'];
@@ -8,6 +9,7 @@ app.filter('convertStatusCode', function() {
     };
 });
 
+/* Takes time window, or other date string and converts it to a more readable string */
 app.filter('stripTimeWindow', function() {
     return function(input) {
         var date = new Date(input).toDateString().substring(4);
@@ -17,6 +19,7 @@ app.filter('stripTimeWindow', function() {
     };
 });
 
+/* Converts the given weather icon code into the responding weatherIcon icon */
 app.filter('convertIcon', function() {
     return function(input) {
         var iconReference = [{
@@ -76,15 +79,16 @@ app.filter('convertIcon', function() {
         }];
 
         var output = iconReference.filter(function(icon, i) {
-            if(icon.apiIcon.indexOf(input) !== -1) return i;
+            if(icon.apiIcon.indexOf(input) !== -1) return i; // If match, return
         });
 
-        if(output.length === 0) return iconReference[(iconReference.length - 1)].icon;
+        if(output.length === 0) return iconReference[(iconReference.length - 1)].icon; // Else N/A
 
         return output[0].icon;
     };
 });
 
+/* Capitalises each word of a given string (For use with the weather description)*/
 app.filter('capitaliseWords', function() {
     return function(input) {
         var string = input.split(' ');

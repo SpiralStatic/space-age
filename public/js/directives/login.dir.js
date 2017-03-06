@@ -2,6 +2,7 @@ angular
     .module('SpaceAgeApp')
     .directive('login', LoginDirective);
 
+/* Details the type and scope of the login directive (Login Modal)*/
 function LoginDirective() {
     return {
         restrict: 'E',

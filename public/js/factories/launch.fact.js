@@ -2,6 +2,7 @@ angular
     .module('SpaceAgeApp')
     .factory('Launch', LaunchFactory);
 
+/* Asks backend API for launch/es */
 function LaunchFactory(API, $http) {
     return {
         getAll: function(launchSize) {

@@ -2,6 +2,7 @@ angular
     .module('SpaceAgeApp')
     .directive('launch', LaunchDirective);
 
+/* Details the type and scope of the launch directive */
 function LaunchDirective() {
     return {
         restrict: 'E',
