@@ -3,10 +3,12 @@
     <div class="ui centered grid">
         <div class="twelve wide column" ng-init="launchCtrl.getLaunches()">
             <h1>Launches</h1>
+
             <div class="ui divided items">
                 <launch
-                    ng-repeat="launch in launchCtrl.launches"
+                    ng-repeat="launch in launchCtrl.launches track by $index"
                     id="launch.id"
+                    index="$index"
                     name="launch.name"
                     status="launch.status"
                     windowstart="launch.windowstart"
@@ -15,7 +17,8 @@
                     rockets="launch.rockets"
                     missions="launch.missions"
                     infoURLs="launch.infoURLs"
-                    weather="launch.weather">
+                    weather="launch.weather"
+                    addtofavorites="launchCtrl.addToFavorites()" >
                 </launch>
 
                 <button class="ui fluid animated fade labeled icon button" ng-click="launchCtrl.getLaunches()">

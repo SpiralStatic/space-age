@@ -2,8 +2,9 @@ angular
     .module('SpaceAgeApp')
     .controller('LaunchController', LaunchController);
 
-function LaunchController(Launch, Weather, User, $stateParams) {
+function LaunchController(Launch, Weather, User, $stateParams, UserService) {
     var self = this;
+    self.user = UserService.user;
     self.launches = [];
     self.launch = {};
     self.launchCounter = 6;
@@ -37,10 +38,15 @@ function LaunchController(Launch, Weather, User, $stateParams) {
     };
 
     self.addToFavorites = function() {
-        var user = firebase.auth().currentUser;
+        console.log("added to favorites");
         var id = $stateParams.id;
+        console.log("id", id);
+        console.log("launches", self.launches);
+        console.log("found", self.launches.indexOf(id));
 
-        User.update(user.uid, id)
+        User.update(self.user.uid, newUser = {
+                favorites: self.launches.indexOf(id)
+            })
             .then(function(response) {
                 console.log(response);
             })

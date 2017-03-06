@@ -16,8 +16,4 @@ function UserController(User, UserService) {
                 self.error = error;
             });
     };
-
-    self.editSubmit = function() {
-        $state.go('profile');
-    };
 }

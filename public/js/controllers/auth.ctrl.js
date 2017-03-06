@@ -20,6 +20,8 @@ function AuthController(Auth, User, $scope, $state, LoginService, UserService) {
                 }).catch(function(dbError) {
                     self.error = dbError;
                 });
+
+                $state.go('home');
             })
             .catch(function(error) {
                 self.error = error;
@@ -46,7 +48,7 @@ function AuthController(Auth, User, $scope, $state, LoginService, UserService) {
                 var user = result.user;
                 User.get(user.uid)
                     .then(function(dbUser) {
-
+                        $state.go('home');
                     })
                     .catch(function(dbError) {
                         if (dbError.status === 404) {

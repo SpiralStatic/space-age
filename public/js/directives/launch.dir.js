@@ -9,6 +9,7 @@ function LaunchDirective() {
         templateUrl: 'js/directives/launch.dir.html',
         scope: {
             id: '=',
+            index: '=',
             name: '=',
             location: '=',
             rockets: '=',
@@ -20,7 +21,8 @@ function LaunchDirective() {
             windowend: '=',
             infoURLs: '=',
             vidURLs: '=',
-            weather: '='
+            weather: '=',
+            addtofavorites:'&'
         }
     };
 }
