@@ -23,7 +23,7 @@ function LaunchController(Launch, Weather, User, $stateParams, UserService) {
 
     self.getLaunch = function() {
         var id = $stateParams.id;
-
+        console.log("das");
         Launch.get(id)
             .then(function(response) {
                 self.launch = response.data.launches[0];
@@ -38,21 +38,15 @@ function LaunchController(Launch, Weather, User, $stateParams, UserService) {
     };
 
     self.addToFavorites = function(index) {
-        console.log("added to favorites");
-        console.log("index", index);
-        console.log("launches", self.launches);
-        console.log("found", self.launches[index]);
-
         User.update(self.user.uid, updatedUser = {
                 favorites: {
                     launchId: self.launches[index].id
                 }
             })
             .then(function(response) {
-                console.log(response);
+
             })
             .catch(function(error) {
-                console.log(error)
                 self.error = error;
             });
     };

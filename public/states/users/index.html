@@ -4,20 +4,8 @@
     <div class="ui centered grid">
         <div class="twelve wide column" ng-init="favorCtrl.getUser()">
             <h1>Your Favorites</h1>
-        </div>
 
-        <launch
-            ng-repeat="launch in favorCtrl.userDetails.favorites" ng-init="launchCtrl.getLaunch({ id: launch.id })"
-            id="launch.id"
-            name="launch.name"
-            status="launch.status"
-            windowstart="launch.windowstart"
-            windowend="launch.windowend"
-            location="launch.location"
-            rockets="launch.rockets"
-            missions="launch.missions"
-            infoURLs="launch.infoURLs"
-            weather="launch.weather">
-        </launch>
+            <button ng-repeat="launch in favorCtrl.userDetails.favorites track by $index" type="button" class="ui button" ui-sref="showlaunch({ id: launch.launchId })">{{ $index }}</button>
+        </div>
     </div>
 </section>
