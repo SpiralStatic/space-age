@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var morgan = require('morgan');
+//var morgan = require('morgan');
 
 var routes = require('./config/routes.js');
 
@@ -16,7 +16,7 @@ mongoose.connect('mongodb://localhost/spaceage', function() {
 });
 
 // Body Parser
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
@@ -27,7 +27,7 @@ app.set('view engine', 'ejs');
 // Add the router
 app.use(routes);
 
-app.use(morgan('dev'))
+//app.use(morgan('dev'));
 
 // Start server
 app.listen(3000, function() {
