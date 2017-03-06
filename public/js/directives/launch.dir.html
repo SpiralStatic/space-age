@@ -16,7 +16,7 @@
             <button class="ui icon blue button right floated" ui-sref="showlaunch({ id: id, '#': map })" aria-label="Go to launch map"><i class="compass icon"></i></button>
         </div>
     </div>
-    <div class="image">
+    <div class="image" ng-if="weather.weather[0]">
         <i class="wicon wi {{ weather.weather[0].icon | convertIcon }}" alt="{{ weather.weather[0].description }}"></i>
         <p class="text-center">{{ weather.weather[0].description | capitaliseWords }}</p>
     </div>
