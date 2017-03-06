@@ -44,12 +44,15 @@ function LaunchController(Launch, Weather, User, $stateParams, UserService) {
         console.log("found", self.launches[index]);
 
         User.update(self.user.uid, updatedUser = {
-                favorites: self.launches[index]
+                favorites: {
+                    launchId: self.launches[index].id
+                }
             })
             .then(function(response) {
                 console.log(response);
             })
             .catch(function(error) {
+                console.log(error)
                 self.error = error;
             });
     };

@@ -14,6 +14,7 @@ router.route('/api/users')
 
 router.route('/api/users/:id')
     .get(apiUsersController.show)
+    .patch(apiUsersController.update)
     .delete(apiUsersController.delete);
 
 router.route('/api/launches')
