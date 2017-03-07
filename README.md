@@ -95,6 +95,9 @@ The coding of the project was mostly a iterative process doing each small task o
 The process also involved automated testing of the backend API through mocha/chai, though unfortunately this was not continued to the end.
 
 ### Final Result
+The end product meets the outlined MVP, though the thrid point of '* Ability to mark them in some way for future reference (Favoriting and/or add to calender)' could do with more fleshing out.
 
+It also meets all the set out requirements in the project brief. Though testing could be further improved.
 
 ## Conclusions
+The current state of the product is something I'm reasonably happy with. There is some functionality that still needs to be implemented (aka add to calender), and plenty of extra touches I would like to add.
